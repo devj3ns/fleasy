@@ -37,7 +37,7 @@ extension DateTimeUtils on DateTime {
 
   bool isSameDay(DateTime other) => _differenceInDays(other) == 0;
 
-  bool timeIsZero() =>
+  bool get timeIsZero =>
       hour == 0 &&
       minute == 0 &&
       second == 0 &&
