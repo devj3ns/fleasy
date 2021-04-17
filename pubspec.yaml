@@ -1,0 +1,16 @@
+name: extensions
+description: Some Flutter/Dart extensions which I need very often :)
+version: 1.0.0
+
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  pedantic: ^1.11.0
+
