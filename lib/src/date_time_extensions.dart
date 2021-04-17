@@ -47,7 +47,10 @@ extension DateTimeUtils on DateTime {
   DateTime copyWithEmptyTime() =>
       copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
 
-  String format(String format) => DateFormat(format).format(this);
+  /// Returns a String which represents the date formatted by the given pattern.
+  ///
+  /// For example: .format('dd.MM.yy') --> 17.04.21
+  String format(String pattern) => DateFormat(pattern).format(this);
 }
 
 extension DateTimeListUtils on List<DateTime> {
