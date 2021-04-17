@@ -19,19 +19,33 @@ extension ContextExtensions on BuildContext {
 
   void closeKeyboard() => FocusScope.of(this).requestFocus(FocusNode());
 
-  /// Push the given route onto the navigator and close the keyboard.
-  ///
-  /// If cancelIfCurrent is set to true, it will only push the route
-  /// if the given route is different from the current route.
-  void pushPage(Route route, {bool cancelIfCurrent = false}) {
-    closeKeyboard();
+  /// Push the given route onto the navigator.
+  void pushRoute(
+    Route route, {
+    closeKeyboard = true,
+    bool avoidDuplicateRoute = true,
+  }) {
+    if (closeKeyboard) this.closeKeyboard();
 
-    if (cancelIfCurrent && route.isCurrent) {
+    if (avoidDuplicateRoute && route.isCurrent) {
       print(
           'INFO: New route is not pushed because it is already the current route!');
     } else {
       Navigator.of(this).push<void>(route);
     }
+  }
+
+  /// Push the given page onto the navigator.
+  void pushPage(
+    Widget page, {
+    closeKeyboard = true,
+    bool avoidDuplicatePage = true,
+  }) {
+    pushRoute(
+      MaterialPageRoute(builder: (context) => page),
+      closeKeyboard: closeKeyboard,
+      avoidDuplicateRoute: avoidDuplicatePage,
+    );
   }
 
   /// Pop the top-most route off the navigator and close the keyboard.
