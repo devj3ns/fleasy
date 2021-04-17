@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 extension DateTimeUtils on DateTime {
   DateTime copyWith({
     int? year,
@@ -44,6 +46,8 @@ extension DateTimeUtils on DateTime {
 
   DateTime copyWithEmptyTime() =>
       copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
+
+  String format(String format) => DateFormat(format).format(this);
 }
 
 extension DateTimeListUtils on List<DateTime> {
