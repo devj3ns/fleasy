@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+class FormFactorBreakpoints {
+  static double desktop = 900;
+  static double tablet = 600;
+  static double handset = 300;
+}
+
+enum FormFactor { Desktop, Tablet, Handset, Watch }
+
 extension ContextExtensions on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 
@@ -15,7 +23,14 @@ extension ContextExtensions on BuildContext {
 
   bool get screenIsPortrait => mediaQuery.orientation == Orientation.portrait;
 
-  bool get isDesktop => screenWidth > 1000;
+  FormFactor get formFactor {
+    // Use .shortestSide to detect device type regardless of orientation
+    final deviceWidth = MediaQuery.of(this).size.shortestSide;
+    if (deviceWidth > FormFactorBreakpoints.desktop) return FormFactor.Desktop;
+    if (deviceWidth > FormFactorBreakpoints.tablet) return FormFactor.Tablet;
+    if (deviceWidth > FormFactorBreakpoints.handset) return FormFactor.Handset;
+    return FormFactor.Watch;
+  }
 
   void closeKeyboard() => FocusScope.of(this).requestFocus(FocusNode());
 
