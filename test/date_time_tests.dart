@@ -1,4 +1,4 @@
-import 'package:flutter_extensions/fleasy.dart';
+import 'package:fleasy/fleasy.dart';
 import 'package:test/test.dart';
 
 void main() {
