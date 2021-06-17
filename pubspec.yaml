@@ -1,7 +1,9 @@
-name: flutter_extensions
-description: Some Flutter/Dart extensions which I need very often :)
+name: fleasy
+description: Useful and easy to use extensions, helper classes and widgets to help creating Flutter apps easier.
 version: 1.0.0
-repository: https://github.com/devj3ns/flutter_extensions
+repository: https://github.com/devj3ns/fleasy
+authors:
+  - Jens Becker - jensbecker.dev
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -12,6 +14,7 @@ dependencies:
 
   intl: ^0.17.0
   universal_platform: ^1.0.0-nullsafety
+  font_awesome_flutter: ^9.1.0
 
 dev_dependencies:
   test: ^1.17.8

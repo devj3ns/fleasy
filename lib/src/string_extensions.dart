@@ -28,6 +28,6 @@ extension NullableStringUtils on String? {
   /// Returns true if the string is an invalid email.
   bool get isInvalidEmail => !isValidEmail;
 
-  /// Returns null if the string is blank (empty or null) or it's text if it's no blank.
+  /// Returns null if the string is blank (empty or null) or it's text if not.
   String? toNullIfBlank() => isNotBlank ? this : null;
 }
