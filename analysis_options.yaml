@@ -1,36 +1,67 @@
-include: package:pedantic/analysis_options.yaml
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  errors:
+    use_key_in_widget_constructors: ignore
+  plugins:
+    - dart_code_metrics
+
+dart_code_metrics:
+  rules:
+    - avoid-unused-parameters
+    - avoid-wrapping-in-padding
+    - avoid-returning-widgets
+    - avoid-unnecessary-setstate
+    - always-remove-listener
+    - double-literal-format
+    - newline-before-return
+    - no-boolean-literal-compare
+    - no-equal-then-else
+    - no-object-declaration
+    - prefer-conditional-expressions
 
 linter:
   rules:
     - avoid_empty_else
-    - avoid_function_literals_in_foreach_calls
+    - avoid_relative_lib_imports
+    - avoid_returning_null
+    - avoid_returning_null_for_void
+    - avoid_types_as_parameter_names
+    - avoid_unused_constructor_parameters
+    - await_only_futures
+    - camel_case_types
     - cancel_subscriptions
     - cascade_invocations
     - comment_references
-    - constant_identifier_names
-    - control_flow_in_finally
     - directives_ordering
-    - empty_statements
+    - empty_catches
     - hash_and_equals
-    - implementation_imports
     - invariant_booleans
     - iterable_contains_unrelated_type
     - list_remove_unrelated_type
     - no_adjacent_strings_in_list
+    - no_duplicate_case_values
     - non_constant_identifier_names
-    - only_throw_errors
-    - overridden_fields
+    - omit_local_variable_types
     - package_api_docs
-    - package_names
     - package_prefixed_library_names
+    - prefer_final_fields
     - prefer_final_locals
-    - prefer_const_constructors
-    - prefer_initializing_formals
     - prefer_interpolation_to_compose_strings
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - prefer_single_quotes
     - prefer_typing_uninitialized_variables
     - sort_constructors_first
     - test_types_in_equals
     - throw_in_finally
+    - unawaited_futures
     - unnecessary_lambdas
     - unnecessary_null_aware_assignments
     - unnecessary_statements
+    - unrelated_type_equality_checks
+    - use_rethrow_when_possible
+    - valid_regexps

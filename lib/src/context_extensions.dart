@@ -6,7 +6,7 @@ class FormFactorBreakpoints {
   static double handset = 300;
 }
 
-enum FormFactor { Desktop, Tablet, Handset, Watch }
+enum FormFactor { desktop, tablet, handset, watch }
 
 extension ContextExtensions on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -26,10 +26,11 @@ extension ContextExtensions on BuildContext {
   FormFactor get formFactor {
     // Use .shortestSide to detect device type regardless of orientation
     final deviceWidth = MediaQuery.of(this).size.shortestSide;
-    if (deviceWidth > FormFactorBreakpoints.desktop) return FormFactor.Desktop;
-    if (deviceWidth > FormFactorBreakpoints.tablet) return FormFactor.Tablet;
-    if (deviceWidth > FormFactorBreakpoints.handset) return FormFactor.Handset;
-    return FormFactor.Watch;
+    if (deviceWidth > FormFactorBreakpoints.desktop) return FormFactor.desktop;
+    if (deviceWidth > FormFactorBreakpoints.tablet) return FormFactor.tablet;
+    if (deviceWidth > FormFactorBreakpoints.handset) return FormFactor.handset;
+
+    return FormFactor.watch;
   }
 
   void closeKeyboard() => FocusScope.of(this).requestFocus(FocusNode());
@@ -37,13 +38,13 @@ extension ContextExtensions on BuildContext {
   /// Push the given route onto the navigator.
   void pushRoute(
     Route route, {
-    closeKeyboard = true,
+    bool closeKeyboard = true,
     bool avoidDuplicateRoute = true,
   }) {
     if (closeKeyboard) this.closeKeyboard();
 
     if (avoidDuplicateRoute && route.isCurrent) {
-      print(
+      debugPrint(
           'INFO: New route is not pushed because it is already the current route!');
     } else {
       Navigator.of(this).push<void>(route);
@@ -53,11 +54,11 @@ extension ContextExtensions on BuildContext {
   /// Push the given page onto the navigator.
   void pushPage(
     Widget page, {
-    closeKeyboard = true,
+    bool closeKeyboard = true,
     bool avoidDuplicatePage = true,
   }) {
     pushRoute(
-      MaterialPageRoute(builder: (context) => page),
+      MaterialPageRoute<Widget>(builder: (context) => page),
       closeKeyboard: closeKeyboard,
       avoidDuplicateRoute: avoidDuplicatePage,
     );
