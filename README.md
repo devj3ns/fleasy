@@ -1,5 +1,10 @@
 # Fleasy
 
+<p align="center">
+<a href="https://pub.dev/packages/fleasy"><img src="https://img.shields.io/pub/v/fleasy?color=informational" alt="pub.dev badge"></a>
+</p>
+
+
 This package helps creating Flutter apps easier by providing useful and easy to use extensions, helper classes and widgets.
 
 The goal is that by using this package you have to write less (repeating) and more clean and readable code.
