@@ -11,8 +11,8 @@ The goal is that by using this package you have to write less (repeating) and mo
 
 This package contains the following features:
 
-### Extensions:
-- #### `BuildContext`
+## Extensions:
+- ### `BuildContext`
     - `mediaQuery`
     - `screenSize`
     - `screenWidth`
@@ -27,19 +27,19 @@ This package contains the following features:
     - `popPage()`
     - `canPopPage()`
     
-- #### `String`
+- ### `String`
     - `addHttps()`
     - `isValidEmail`
     - `isInvalidEmail`
     
-- #### `String?`
+- ### `String?`
     - `isNotBlank`
     - `isBlank`
     - `isValidEmail`
     - `isInvalidEmail`
     - `toNullIfBlank()`
 
-- #### `DateTime`
+- ### `DateTime`
     - `copyWith(...)`
     - `isToday`
     - `isYesterday`
@@ -50,25 +50,25 @@ This package contains the following features:
     - `copyWithEmptyTime()`
     - `format(...)`
     
-- #### `List<DateTime>`
+- ### `List<DateTime>`
     - `containsDate(...)`
     - `indexOfDate(...)`
     
-- #### `List?`
+- ### `List?`
     - `isNotBlank`
     - `isBlank`
 
-- #### `List<T>`
+- ### `List<T>`
     - `find(...)`
         
         
-### Helper Classes: 
-- #### `Date`
+## Helper Classes: 
+- ### `Date`
     - `Date.today()`
     - `Date.tomorrow()`
     - `Date.yesterday()`
     
-- #### `DeviceType`
+- ### `DeviceType`
     - `DeviceType.isIOS`
     - `DeviceType.isAndroid`
     - `DeviceType.isMacOS`
@@ -80,7 +80,7 @@ This package contains the following features:
     - `DeviceType.isDesktopOrWeb`
     - `DeviceType.isMobileOrWeb`
     
-- #### `Insets`
+- ### `Insets`
     - `xxs`
     - `xs`
     - `s`
@@ -89,16 +89,16 @@ This package contains the following features:
     - `xl`
     - `xxl`
     
-### Flutter Widgets: 
-    - EasyStreamBuilder(...)
-    - EasyFutureBuilder(...)
+## Flutter Widgets: 
+- ### `EasyStreamBuilder(...)`
+- ### `EasyFutureBuilder(...)`
     
 ------
 
 ### To-Do's:
  - [ ] Add more tests
  - [ ] Document the complete code
- - [ ] Create example app
+ - [x] Create example app
  
 ### Note:
 This package is still in early stages.
