@@ -4,27 +4,56 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'adaptive_helpers.dart';
 
-/// This widget makes it easy to display the various states of getting data via a [Stream].
+/// A wrapper around [StreamBuilder] which makes it easy to display
+/// the various states of loading data from the given [Stream].
 ///
-/// Currently the snapshot data has to be of type iterable or map.
+/// There are 4 possible states:
+/// 1. Snapshot is loading:
+/// --> shows the [loadingIndicator].
+///
+/// 2. Snapshot has data:
+/// --> shows the widget returned by the [dataBuilder].
+///
+/// 3. Snapshot is empty (data == null or data.isEmpty() on Map & Iterable):
+/// --> shows the [isEmptyText] and [isEmptyIcon].
+///
+/// 4. Snapshot has an error:
+/// --> shows the [errorText] and [errorIcon] and the error message.
+/// NOTE: For safety reasons the snapshots error message is only shown in debug mode.
 class EasyStreamBuilder<T> extends StatelessWidget {
+  /// Creates an [EasyStreamBuilder] which is an wrapper around [StreamBuilder]
+  /// that makes it easy to display the various states of loading data
+  /// from the given [Stream].
   const EasyStreamBuilder({
     required this.stream,
-    required this.errorText,
-    required this.noDataText,
-    this.noDataIcon,
-    required this.builder,
+    required this.dataBuilder,
+    this.errorText = 'Oops, something went wrong.',
+    this.errorIcon = const FaIcon(FontAwesomeIcons.exclamationCircle),
+    this.isEmptyText = 'There is nothing to display.',
+    this.isEmptyIcon = const FaIcon(FontAwesomeIcons.timesCircle),
     this.loadingIndicator = const CircularProgressIndicator(),
-    this.color = Colors.black,
   });
 
+  /// The asynchronous computation to which this builder is currently connected.
   final Stream<T> stream;
+
+  /// The widget which displays the snapshot's data when it's loaded.
+  final Widget Function(BuildContext context, T data) dataBuilder;
+
+  /// The text which is shown when the snapshot has an error.
   final String errorText;
-  final String noDataText;
-  final IconData? noDataIcon;
-  final Widget Function(BuildContext context, T data) builder;
+
+  /// The icon which is shown when the snapshot has an error.
+  final FaIcon errorIcon;
+
+  /// The text which is shown when the snapshot has no data.
+  final String isEmptyText;
+
+  /// The icon which is shown when the snapshot has no data.
+  final FaIcon isEmptyIcon;
+
+  /// The widget which is shown while fetching the snapshots data.
   final Widget loadingIndicator;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -32,75 +61,95 @@ class EasyStreamBuilder<T> extends StatelessWidget {
       stream: stream,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return SnapshotHasError(
+          return _SnapshotHasErrorWarning(
             text: errorText,
+            icon: errorIcon,
             errorMessage: snapshot.error.toString(),
-            color: color,
           );
         } else if (!snapshot.hasData) {
           return snapshot.connectionState == ConnectionState.waiting
               ? loadingIndicator
-              : SnapshotHasError(
-                  text: errorText,
-                  errorMessage: snapshot.error?.toString() ?? '',
-                  color: color,
-                );
+              : snapshot.data == null
+                  ? _SnapshotIsEmptyWarning(
+                      text: isEmptyText,
+                      icon: isEmptyIcon,
+                    )
+                  : _SnapshotHasErrorWarning(
+                      text: errorText,
+                      icon: errorIcon,
+                      errorMessage: snapshot.error?.toString() ?? '',
+                    );
         } else {
-          assert(
-            snapshot.data is Iterable || snapshot.data is Map,
-            'The stream must be of type Iterable or Map!',
-          );
+          var dataIsEmpty = false;
 
-          try {
-            late final bool noData;
-
-            if (snapshot.data is Iterable) {
-              noData = (snapshot.data as Iterable).isEmpty;
-            } else if (snapshot.data is Map) {
-              noData = (snapshot.data as Map).isEmpty;
-            }
-
-            return noData
-                ? SnapshotHasNoData(
-                    text: noDataText,
-                    iconData: noDataIcon,
-                    color: color,
-                  )
-                : builder(context, snapshot.data as T);
-          } catch (e) {
-            return SnapshotHasError(
-              text: errorText,
-              errorMessage: e.toString(),
-              color: color,
-            );
+          if (snapshot.data is Iterable) {
+            dataIsEmpty = (snapshot.data as Iterable).isEmpty;
+          } else if (snapshot.data is Map) {
+            dataIsEmpty = (snapshot.data as Map).isEmpty;
           }
+
+          return dataIsEmpty
+              ? _SnapshotIsEmptyWarning(
+                  text: isEmptyText,
+                  icon: isEmptyIcon,
+                )
+              : dataBuilder(context, snapshot.data as T);
         }
       },
     );
   }
 }
 
-/// This widget makes it easy to display the various states of getting data via a [Future].
+/// A wrapper around [FutureBuilder] which makes it easy to display
+/// the various states of loading data from the given [Future].
 ///
-/// Currently the snapshot data has to be of type iterable or map.
+/// There are 4 possible states:
+/// 1. Snapshot is loading:
+/// --> shows the [loadingIndicator].
+///
+/// 2. Snapshot has data:
+/// --> shows the widget returned by the [dataBuilder].
+///
+/// 3. Snapshot is empty (data == null or data.isEmpty() on Map & Iterable):
+/// --> shows the [isEmptyText] and [isEmptyIcon].
+///
+/// 4. Snapshot has an error:
+/// --> shows the [errorText] and [errorIcon] and the error message.
+/// NOTE: For safety reasons the snapshots error message is only shown in debug mode.
 class EasyFutureBuilder<T> extends StatelessWidget {
+  /// Creates an [EasyFutureBuilder] which is an wrapper around [FutureBuilder]
+  /// that makes it easy to display the various states of loading
+  /// data from the given [Future].
   const EasyFutureBuilder({
     required this.future,
-    required this.errorText,
-    required this.noDataText,
-    required this.noDataIcon,
-    required this.builder,
+    required this.dataBuilder,
+    this.errorText = 'Oops, something went wrong.',
+    this.errorIcon = const FaIcon(FontAwesomeIcons.exclamationCircle),
+    this.isEmptyText = 'There is nothing to display.',
+    this.isEmptyIcon = const FaIcon(FontAwesomeIcons.timesCircle),
     this.loadingIndicator = const CircularProgressIndicator(),
-    this.color = Colors.black,
   });
 
+  /// The asynchronous computation to which this builder is currently connected.
   final Future<T> future;
+
+  /// The widget which displays the snapshot's data when it's loaded.
+  final Widget Function(BuildContext context, T data) dataBuilder;
+
+  /// The text which is shown when the snapshot has an error.
   final String errorText;
-  final String noDataText;
-  final IconData noDataIcon;
-  final Widget Function(BuildContext context, T data) builder;
+
+  /// The icon which is shown when the snapshot has an error.
+  final FaIcon errorIcon;
+
+  /// The text which is shown when the snapshot has no data.
+  final String isEmptyText;
+
+  /// The icon which is shown when the snapshot has no data.
+  final FaIcon isEmptyIcon;
+
+  /// The widget which is shown while fetching the snapshots data.
   final Widget loadingIndicator;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -108,65 +157,55 @@ class EasyFutureBuilder<T> extends StatelessWidget {
       future: future,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return SnapshotHasError(
+          return _SnapshotHasErrorWarning(
             text: errorText,
+            icon: errorIcon,
             errorMessage: snapshot.error.toString(),
-            color: color,
           );
         } else if (!snapshot.hasData) {
           return snapshot.connectionState == ConnectionState.waiting
               ? loadingIndicator
-              : SnapshotHasError(
-                  text: errorText,
-                  errorMessage: snapshot.error?.toString() ?? '',
-                  color: color,
-                );
+              : snapshot.data == null
+                  ? _SnapshotIsEmptyWarning(
+                      text: isEmptyText,
+                      icon: isEmptyIcon,
+                    )
+                  : _SnapshotHasErrorWarning(
+                      text: errorText,
+                      icon: errorIcon,
+                      errorMessage: snapshot.error?.toString() ?? '',
+                    );
         } else {
-          assert(
-            snapshot.data is Iterable || snapshot.data is Map,
-            'The future must be of type Iterable or Map!',
-          );
+          var dataIsEmpty = false;
 
-          try {
-            late final bool noData;
-
-            if (snapshot.data is Iterable) {
-              noData = (snapshot.data as Iterable).isEmpty;
-            } else if (snapshot.data is Map) {
-              noData = (snapshot.data as Map).isEmpty;
-            }
-
-            return noData
-                ? SnapshotHasNoData(
-                    text: noDataText,
-                    iconData: noDataIcon,
-                    color: color,
-                  )
-                : builder(context, snapshot.data as T);
-          } catch (e) {
-            return SnapshotHasError(
-              text: errorText,
-              errorMessage: e.toString(),
-              color: color,
-            );
+          if (snapshot.data is Iterable) {
+            dataIsEmpty = (snapshot.data as Iterable).isEmpty;
+          } else if (snapshot.data is Map) {
+            dataIsEmpty = (snapshot.data as Map).isEmpty;
           }
+
+          return dataIsEmpty
+              ? _SnapshotIsEmptyWarning(
+                  text: isEmptyText,
+                  icon: isEmptyIcon,
+                )
+              : dataBuilder(context, snapshot.data as T);
         }
       },
     );
   }
 }
 
-/// This widget can be used to show that there is an error.
-class SnapshotHasError extends StatelessWidget {
-  const SnapshotHasError({
+class _SnapshotHasErrorWarning extends StatelessWidget {
+  const _SnapshotHasErrorWarning({
     required this.text,
     required this.errorMessage,
-    this.color = Colors.black,
+    required this.icon,
   });
 
   final String text;
   final String errorMessage;
-  final Color color;
+  final FaIcon icon;
 
   @override
   Widget build(BuildContext context) {
@@ -177,27 +216,19 @@ class SnapshotHasError extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            FaIcon(
-              FontAwesomeIcons.exclamationCircle,
-              size: 55,
-              color: color,
-            ),
+            icon,
             const SizedBox(height: Insets.m),
             SelectableText(
               text,
-              style:
-                  Theme.of(context).textTheme.bodyText1!.copyWith(color: color),
               textAlign: TextAlign.center,
             ),
-            if (kDebugMode)
-              Padding(
-                padding: const EdgeInsets.all(Insets.m),
-                child: SelectableText(
-                  errorMessage,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: color),
-                ),
+            if (kDebugMode && errorMessage.isNotEmpty) ...[
+              const SizedBox(height: Insets.m),
+              SelectableText(
+                errorMessage,
+                textAlign: TextAlign.center,
               ),
+            ]
           ],
         ),
       ),
@@ -205,39 +236,28 @@ class SnapshotHasError extends StatelessWidget {
   }
 }
 
-/// This widget can be used to show that there is no data.
-class SnapshotHasNoData extends StatelessWidget {
-  const SnapshotHasNoData({
+class _SnapshotIsEmptyWarning extends StatelessWidget {
+  const _SnapshotIsEmptyWarning({
     required this.text,
-    this.iconData,
-    this.color = Colors.black,
+    required this.icon,
   });
 
   final String text;
-  final IconData? iconData;
-  final Color color;
+  final FaIcon icon;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(Insets.m),
-      child: Center(
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(Insets.m),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (iconData != null) ...[
-              Padding(
-                padding: const EdgeInsets.all(Insets.xxl),
-                child: FaIcon(
-                  iconData,
-                  size: 50,
-                  color: color,
-                ),
-              ),
-            ],
+            icon,
+            const SizedBox(height: Insets.m),
             SelectableText(
               text,
-              style: TextStyle(color: color),
               textAlign: TextAlign.center,
             ),
           ],
