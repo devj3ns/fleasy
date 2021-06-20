@@ -90,16 +90,18 @@ This package contains the following features:
     - `xxl`
     
 ## Flutter Widgets: 
-- ### `EasyStreamBuilder(...)`
-- ### `EasyFutureBuilder(...)`
+- ### [EasyFutureBuilder<T>](https://pub.dev/documentation/fleasy/latest/fleasy/EasyFutureBuilder-class.html)
+  A wrapper around `FutureBuilder` which makes it easy to display the various states of fetching data from the given `Future`. See [example](https://github.com/devj3ns/fleasy/blob/main/example/lib/main.dart).
+- ### [EasyStreamBuilder<T>](https://pub.dev/documentation/fleasy/latest/fleasy/EasyStreamBuilder-class.html)
+  A wrapper around `StreamBuilder` which makes it easy to display the various states of streaming data from the given `Stream`. See [example](https://github.com/devj3ns/fleasy/blob/main/example/lib/main.dart).
     
 ------
 
-### To-Do's:
+## To-Do's:
  - [ ] Add more tests
  - [ ] Document the complete code
  - [x] Create example app
  
-### Note:
+## Note:
 This package is still in early stages.
 If you notice any bugs not present in issues, please file a new issue. If you are willing to fix or enhance things yourself, you are very welcome to make a pull request.

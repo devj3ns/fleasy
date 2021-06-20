@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'adaptive_helpers.dart';
 
 /// A wrapper around [FutureBuilder] which makes it easy to display
-/// the various states of loading data from the given [Future].
+/// the various states of fetching data from the given [Future].
 ///
 /// There are 4 possible states:
 /// 1. Snapshot is loading:
@@ -101,7 +101,7 @@ class EasyFutureBuilder<T> extends StatelessWidget {
 }
 
 /// A wrapper around [StreamBuilder] which makes it easy to display
-/// the various states of loading data from the given [Stream].
+/// the various states of streaming data from the given [Stream].
 ///
 /// There are 4 possible states:
 /// 1. Snapshot is loading:
