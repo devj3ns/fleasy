@@ -2,9 +2,19 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+      - '*.md'
+      - 'example/**'
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+      - '*.md'
+      - 'example/**'
 
 jobs:
   build:
