@@ -71,17 +71,17 @@ extension AdpativeContextExtensions on BuildContext {
 }
 
 extension NavigationContextExtensions on BuildContext {
-  /// Closes the keyboard by removing the focus on this node by moving
+  /// Dismisses the keyboard by removing the focus on this node by moving
   /// the primary focus to another node.
-  void closeKeyboard() => FocusScope.of(this).unfocus();
+  void dismissKeyboard() => FocusScope.of(this).unfocus();
 
   /// Push the given route onto the navigator.
   void pushRoute(
     Route route, {
-    bool closeKeyboard = true,
+    bool dismissKeyboard = true,
     bool avoidDuplicateRoute = true,
   }) {
-    if (closeKeyboard) this.closeKeyboard();
+    if (dismissKeyboard) this.dismissKeyboard();
 
     if (avoidDuplicateRoute && route.isCurrent) {
       debugPrint(
@@ -94,19 +94,19 @@ extension NavigationContextExtensions on BuildContext {
   /// Push the given page onto the navigator.
   void pushPage(
     Widget page, {
-    bool closeKeyboard = true,
+    bool dismissKeyboard = true,
     bool avoidDuplicatePage = true,
   }) {
     pushRoute(
       MaterialPageRoute<Widget>(builder: (context) => page),
-      closeKeyboard: closeKeyboard,
+      dismissKeyboard: dismissKeyboard,
       avoidDuplicateRoute: avoidDuplicatePage,
     );
   }
 
-  /// Pop the top-most route off the navigator and close the keyboard.
-  void popPage() {
-    closeKeyboard();
+  /// Pop the top-most route off the navigator and dismiss the keyboard.
+  void popPage({bool dismissKeyboard = true}) {
+    if (dismissKeyboard) this.dismissKeyboard();
     Navigator.of(this).pop();
   }
 
