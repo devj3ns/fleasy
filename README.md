@@ -15,7 +15,7 @@ The goal is that by using this package you have to write less (repeating) and mo
 
 ## Overview
 
-This package contains the following features:
+Here is an quick overview over all extensions, helper classes and widgets:
 
 - [Extensions on `String` and `String?`](#extensions-on-string-and-string)
 - [Extensions on `String?`](#extensions-on-string)
@@ -24,13 +24,15 @@ This package contains the following features:
 - [Extensions on `BuildContext` (Adaptive helpers)](#extensions-on-buildcontext-adaptive-helpers)
 - [Extensions on `BuildContext` (Navigation helpers)](#extensions-on-buildcontext-navigation-helpers)
 - [Extensions on `List?`](#extensions-on-list)
-- [Extensions on `List`](#extensions-on-list)
+- [Extensions on `List`](#extensions-on-list-1)
 - [`Date` helper class](#date-helper-class)
 - [`DeviceType` helper class](#devicetype-helper-class)
 - [`Insets` helper class](#insets-helper-class)
 - [Flutter Widgets](#flutter-widgets)
 
 ## Features
+
+All features with links to their page in the documentation are listed below:
 
 - ### Extensions on `String` and `String?`:
     - #### [isEmail](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isEmail.html)
