@@ -62,7 +62,7 @@ extension DateTimeExtensions on DateTime {
   String format(String pattern) => DateFormat(pattern).format(this);
 }
 
-extension DateTimeListUtils on List<DateTime> {
+extension DateTimeListExtensions on List<DateTime> {
   /// Whether the list contains the given date (regardless of the time).
   bool containsDate(DateTime date) =>
       indexWhere((dateTime) => dateTime.isSameDay(date)) != -1;
