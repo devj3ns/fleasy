@@ -13,10 +13,6 @@ final RegExp _strongPasswordRegExp =
     RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])\S{8,}$');
 
 extension StringExtensions on String {
-  /// Adds https:// to the beginning of the string if it does not contain https:// or http://.
-  String addHttps() =>
-      !contains('https://') && !contains('http://') ? 'https://$this' : this;
-
   /// Whether the string is a valid email.
   bool get isEmail => _emailRegExp.hasMatch(this);
 
