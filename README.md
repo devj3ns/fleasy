@@ -32,7 +32,7 @@ This package contains the following features:
 ## Features
 
 - ### Extensions on `String` and `String?`:
-    - #### [isEmail](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isEmail.html)
+    - #### [isEmail](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isEmail.html) 
       Whether the string is a valid email.
     - #### [isUrl](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isUrl.html)
       Whether the string is a valid url.
