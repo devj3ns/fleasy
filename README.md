@@ -1,11 +1,14 @@
 # Fleasy
 
 <p align="center">
-<a href="https://pub.dev/packages/fleasy"><img src="https://img.shields.io/pub/v/fleasy?color=informational" alt="pub.dev badge"></a>
+<a href="https://pub.dev/packages/fleasy"><img src="https://img.shields.io/pub/v/fleasy?color=green" alt="pub.dev badge"></a>
+<a href="https://github.com/devj3ns/fleasy/commits/main"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/devj3ns/fleasy?color=blue&label=commits"></a>
+<br>
+<a href="https://www.buymeacoffee.com/devj3ns" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" height="42px"></a>
 </p>
 
 
-This package helps create Flutter apps easier by providing useful and easy to use extensions, helper classes and widgets.
+This package helps create Flutter apps easier by providing **useful and easy to use extensions, helper classes and widgets**.
 
 The goal is that by using this package you have to write less (repeating) and more clean and readable code.
 
