@@ -24,6 +24,11 @@ extension DateTimeExtensions on DateTime {
     );
   }
 
+  /// Returns a [String] which represents the date formatted by the given pattern.
+  ///
+  /// For example: .format('dd.MM.yy') --> 17.04.21.
+  String format(String pattern) => DateFormat(pattern).format(this);
+
   /// Returns the amount of days this differs from the given date.
   int _differenceInDays(DateTime other) => DateTime(year, month, day)
       .difference(DateTime(other.year, other.month, other.day))
@@ -38,7 +43,7 @@ extension DateTimeExtensions on DateTime {
   /// Whether this is tomorrow.
   bool get isTomorrow => _differenceInDays(DateTime.now()) == 1;
 
-  /// Whether this a date in the future.
+  /// Whether this is a day in the future.
   bool get isFutureDay => _differenceInDays(DateTime.now()) > 0;
 
   /// Whether this is the same date (not time!) as the given date.
@@ -55,11 +60,6 @@ extension DateTimeExtensions on DateTime {
   /// Returns a copy with time set to zero.
   DateTime copyWithEmptyTime() =>
       copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
-
-  /// Returns a [String] which represents the date formatted by the given pattern.
-  ///
-  /// For example: .format('dd.MM.yy') --> 17.04.21.
-  String format(String pattern) => DateFormat(pattern).format(this);
 }
 
 extension DateTimeListExtensions on List<DateTime> {

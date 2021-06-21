@@ -1,8 +1,8 @@
 extension NullableListExtensions on List? {
-  /// Returns true if empty or null.
+  /// Whether the list is not empty nor null.
   bool get isNotBlank => this != null && this!.isNotEmpty;
 
-  /// Returns true if not empty nor null.
+  /// Whether the list is empty or null.
   bool get isBlank => !isNotBlank;
 }
 

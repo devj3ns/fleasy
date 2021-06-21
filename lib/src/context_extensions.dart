@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-/// Class which defines the form factor breakpoints.
+/// Class which defines the form factor breakpoints:
+///
+/// Desktop = 900
+/// Tablet = 600
+/// Handset = 300
 class FormFactorBreakpoints {
   static double desktop = 900;
   static double tablet = 600;
@@ -31,9 +35,6 @@ extension AdpativeContextExtensions on BuildContext {
 
   /// The greater of the magnitudes of the screen width and height.
   double get longestScreenSide => mediaQuery.size.longestSide;
-
-  /// The orientation of the media (e.g., whether the device is in landscape or portrait mode).
-  Orientation get screenOrientation => mediaQuery.orientation;
 
   /// Whether the device is in landscape mode.
   bool get screenIsLandscape => mediaQuery.orientation == Orientation.landscape;
@@ -71,9 +72,18 @@ extension AdpativeContextExtensions on BuildContext {
 }
 
 extension NavigationContextExtensions on BuildContext {
-  /// Dismisses the keyboard by removing the focus on this node by moving
-  /// the primary focus to another node.
-  void dismissKeyboard() => FocusScope.of(this).unfocus();
+  /// Push the given page onto the navigator.
+  void pushPage(
+    Widget page, {
+    bool dismissKeyboard = true,
+    bool avoidDuplicatePage = true,
+  }) {
+    pushRoute(
+      MaterialPageRoute<Widget>(builder: (context) => page),
+      dismissKeyboard: dismissKeyboard,
+      avoidDuplicateRoute: avoidDuplicatePage,
+    );
+  }
 
   /// Push the given route onto the navigator.
   void pushRoute(
@@ -91,19 +101,6 @@ extension NavigationContextExtensions on BuildContext {
     }
   }
 
-  /// Push the given page onto the navigator.
-  void pushPage(
-    Widget page, {
-    bool dismissKeyboard = true,
-    bool avoidDuplicatePage = true,
-  }) {
-    pushRoute(
-      MaterialPageRoute<Widget>(builder: (context) => page),
-      dismissKeyboard: dismissKeyboard,
-      avoidDuplicateRoute: avoidDuplicatePage,
-    );
-  }
-
   /// Pop the top-most route off the navigator and dismiss the keyboard.
   void popPage({bool dismissKeyboard = true}) {
     if (dismissKeyboard) this.dismissKeyboard();
@@ -112,4 +109,8 @@ extension NavigationContextExtensions on BuildContext {
 
   /// Whether the navigator can be popped.
   bool canPopPage() => Navigator.of(this).canPop();
+
+  /// Dismisses the keyboard
+  /// (by removing the focus on this node by moving the primary focus to another node).
+  void dismissKeyboard() => FocusScope.of(this).unfocus();
 }
