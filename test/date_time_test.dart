@@ -2,64 +2,150 @@ import 'package:fleasy/fleasy.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Test isToday, isYesterday, isTomorrow, isFutureDay & isSameDay.', () {
-    test('Test isToday', () {
+  group('isToday', () {
+    test('is true on DateTime.now().', () {
       final now = DateTime.now();
 
       expect(now.isToday, equals(true));
     });
 
-    test('Test isYesterday', () {
-      final now = DateTime.now();
-      final yesterday = DateTime(now.year, now.month, now.day - 1, now.hour,
-          now.minute, now.millisecond, now.microsecond);
+    test('is false on Date.tomorrow().', () {
+      final tomorrow = Date.tomorrow();
 
-      expect(yesterday.isYesterday, equals(true));
+      expect(tomorrow.isToday, equals(false));
     });
 
-    test('Test isTomorrow', () {
+    test('is false on Date.yesterday().', () {
+      final yesterday = Date.yesterday();
+
+      expect(yesterday.isToday, equals(false));
+    });
+  });
+
+  group('isTomorrow', () {
+    test('is false on DateTime.now().', () {
       final now = DateTime.now();
-      final tomorrow = DateTime(now.year, now.month, now.day + 1, now.hour,
-          now.minute, now.millisecond, now.microsecond);
+
+      expect(now.isTomorrow, equals(false));
+    });
+
+    test('is true on Date.tomorrow().', () {
+      final tomorrow = Date.tomorrow();
 
       expect(tomorrow.isTomorrow, equals(true));
     });
 
-    test('Test isFutureDay', () {
+    test('is false on Date.yesterday().', () {
+      final yesterday = Date.yesterday();
+
+      expect(yesterday.isTomorrow, equals(false));
+    });
+  });
+
+  group('isYesterday', () {
+    test('is false on DateTime.now().', () {
       final now = DateTime.now();
-      final tomorrow = DateTime(now.year, now.month, now.day + 3, now.hour,
-          now.minute, now.millisecond, now.microsecond);
+
+      expect(now.isYesterday, equals(false));
+    });
+
+    test('is false on Date.tomorrow().', () {
+      final tomorrow = Date.tomorrow();
+
+      expect(tomorrow.isYesterday, equals(false));
+    });
+
+    test('is true on Date.yesterday().', () {
+      final yesterday = Date.yesterday();
+
+      expect(yesterday.isYesterday, equals(true));
+    });
+  });
+
+  group('isFutureDay', () {
+    test('is false on DateTime.now().', () {
+      final now = DateTime.now();
+
+      expect(now.isFutureDay, equals(false));
+    });
+
+    test('is true on Date.tomorrow().', () {
+      final tomorrow = Date.tomorrow();
 
       expect(tomorrow.isFutureDay, equals(true));
     });
 
-    test('Test isSameDay', () {
-      final now = DateTime.now();
-      final today = DateTime(now.year, now.month, now.day, 0, 0, 0, 0);
+    test('is false on Date.yesterday().', () {
+      final yesterday = Date.yesterday();
 
-      expect(now.isSameDay(today), equals(true));
+      expect(yesterday.isFutureDay, equals(false));
     });
   });
 
-  test('Test copyWith', () {
-    final now = DateTime.now();
+  group('isSameDay', () {
+    test('is true on DateTime.now() and Date.today().', () {
+      final now = DateTime.now();
+      final today = Date.today();
 
-    final expected = DateTime(
-        2001, 11, 16, now.hour, now.minute, now.millisecond, now.microsecond);
-    final actual = now.copyWith(year: 2001, month: 11, day: 16);
+      expect(now.isSameDay(today), equals(true));
+    });
 
-    expect(actual, equals(expected));
+    test('is false on DateTime.now() and Date.yesterday().', () {
+      final now = DateTime.now();
+      final yesterday = Date.yesterday();
+
+      expect(now.isSameDay(yesterday), equals(false));
+    });
+
+    test('is false on DateTime.now() and Date.tomorrow().', () {
+      final now = DateTime.now();
+      final tomorrow = Date.tomorrow();
+
+      expect(now.isSameDay(tomorrow), equals(false));
+    });
   });
 
-  test('Test timeIsZero', () {
-    final dateTime = DateTime(2001, 11, 16, 0, 0, 0, 1);
+  group('copyWith', () {
+    test('returns correct DateTime object.', () {
+      final today = Date.today();
 
-    expect(dateTime.timeIsZero, equals(false));
+      final actual = today.copyWith(year: 2050);
+      final expected = DateTime(2050, today.month, today.day);
+
+      expect(actual, equals(expected));
+    });
   });
 
-  test('Test timeIsZero', () {
-    final dateTime = DateTime(2001, 11, 16, 0, 0, 0, 0);
+  group('copyWithEmptyTime', () {
+    test('returns correct DateTime object.', () {
+      final now = DateTime.now();
 
-    expect(dateTime.timeIsZero, equals(true));
+      final actual = now.copyWithEmptyTime();
+      final expected = DateTime(now.year, now.month, now.day, 0, 0, 0, 0, 0);
+
+      expect(actual, equals(expected));
+    });
+  });
+
+  group('timeIsZero', () {
+    test('is false on non zero time.', () {
+      final dateTime = DateTime(2001, 11, 16, 0, 0, 0, 1);
+
+      expect(dateTime.timeIsZero, equals(false));
+    });
+
+    test('is true on zero time.', () {
+      final dateTime = DateTime(2001, 11, 16, 0, 0, 0, 0);
+
+      expect(dateTime.timeIsZero, equals(true));
+    });
+  });
+
+  group('format', () {
+    test('returns correct string.', () {
+      final dateTime = DateTime(2001, 11, 16);
+
+      expect(dateTime.format('dd.MM.yy'), equals('16.11.01'));
+    });
   });
 }
