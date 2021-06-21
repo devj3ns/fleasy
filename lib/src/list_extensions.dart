@@ -1,13 +1,14 @@
 extension NullableListExtensions on List? {
-  /// Returns true if empty or null
+  /// Returns true if empty or null.
   bool get isNotBlank => this != null && this!.isNotEmpty;
 
-  /// Returns true if not empty nor null
+  /// Returns true if not empty nor null.
   bool get isBlank => !isNotBlank;
 }
 
 extension ListExtensions<T> on List<T> {
-  /// Returns either the first element of the list which satisfies the provided test or null if there is none.
+  /// Returns either the first element of the list which satisfies
+  /// the provided test or null if there is none.
   T? find(bool Function(T element) test) {
     final index = indexWhere((element) => test(element));
 

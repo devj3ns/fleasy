@@ -6,7 +6,7 @@ extension StringUtils on String {
   String addHttps() =>
       !contains('https://') && !contains('http://') ? 'https://$this' : this;
 
-  /// Returns true if the string is a valid email
+  /// Returns true if the string is a valid email.
   bool get isValidEmail => _emailRegularExpression.hasMatch(toLowerCase());
 
   /// Returns true if the string is an invalid email.
