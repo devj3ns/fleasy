@@ -8,7 +8,7 @@
 </p>
 
 
-This package helps create Flutter apps easier by providing **useful and easy to use extensions, helper classes and widgets**.
+Fleasy helps create Flutter apps easier by providing **useful and easy to use extensions, helper classes and widgets**.
 
 The goal is that by using this package you have to write less (repeating) and more clean and readable code.
 
