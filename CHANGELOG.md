@@ -1,3 +1,9 @@
+# 0.2.1
+
+- **Add** CI workflow and badge
+- **Improve** date_time_test
+- **Improve** README
+
 # 0.2.0
 
 - **BREAKING:** Refactor EasyFutureBuilder & EasyStreamBuilder
