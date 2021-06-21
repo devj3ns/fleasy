@@ -8,7 +8,7 @@
 </p>
 
 
-This package helps create Flutter apps easier by providing **useful and easy to use extensions, helper classes and widgets**.
+Fleasy helps create Flutter apps easier by providing **useful and easy to use extensions, helper classes and widgets**.
 
 The goal is that by using this package you have to write less (repeating) and more clean and readable code.
 
@@ -164,7 +164,7 @@ This package contains the following features:
 - ### `Insets` helper class: 
     A single source of truth for styling values like padding, spacing, corner shape, font sizes, and so on.
     These constants can then be used in place of hard-coded numeric values.
-    - #### [s](https://pub.dev/documentation/fleasy/latest/fleasy/Insets/s-constant.html)
+    - #### [xxs](https://pub.dev/documentation/fleasy/latest/fleasy/Insets/xxs-constant.html)
       An extra extra small inset of 2.0.
     - #### [xs](https://pub.dev/documentation/fleasy/latest/fleasy/Insets/xs-constant.html)
       An extra small inset of 4.0.
@@ -191,7 +191,8 @@ This package contains the following features:
  - [x] Improve README
  - [x] Document the complete code
  - [x] Create example app
- - [ ] Add more tests (feel free to contribute ;)
+ - [ ] Add more tests (feel free to contribute ;))
+ - [ ] Add automatic GitHub test workflow
  
 ## Note:
 This package is still in early stages.
