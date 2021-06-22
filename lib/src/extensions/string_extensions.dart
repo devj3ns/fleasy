@@ -13,6 +13,12 @@ final RegExp _strongPasswordRegExp =
     RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])\S{8,}$');
 
 extension StringExtensions on String {
+  /// Whether the string contains characters except of whitespace characters.
+  bool get isNotBlank => trim().isNotEmpty;
+
+  /// Whether the string is either empty or solely made of whitespace characters.
+  bool get isBlank => trim().isEmpty;
+
   /// Whether the string is a valid email.
   bool get isEmail => _emailRegExp.hasMatch(this);
 
@@ -49,13 +55,13 @@ extension StringExtensions on String {
 }
 
 extension NullableStringExtensions on String? {
-  /// Whether the string is not null nor empty.
-  bool get isNotBlank => this != null && this!.isNotEmpty;
+  /// Whether the string is not null and contains characters except of whitespace characters.
+  bool get isNotBlank => this != null && this!.trim().isNotEmpty;
 
-  /// Whether the string is null or empty.
+  /// Whether the string is either null, empty or is solely made of whitespace characters.
   bool get isBlank => !isNotBlank;
 
-  /// Returns null if the string is blank (empty or null) or it's text if not.
+  /// Returns null if the string [isBlank] or it's text if it [isNotBlank].
   String? toNullIfBlank() => isNotBlank ? this : null;
 
   /// Whether the string is not null and a valid email.
@@ -64,7 +70,14 @@ extension NullableStringExtensions on String? {
   /// Whether the string is not null and a valid url.
   bool get isUrl => this != null ? this!.isUrl : false;
 
-  /// Whether the string is a valid medium password.
+  /// Whether the string is not null and a valid easy password.
+  ///
+  /// Requirements:
+  /// - minimum 8 characters
+  /// - no whitespaces
+  bool get isEasyPassword => this != null ? this!.isEasyPassword : false;
+
+  /// Whether the string is not null and a valid medium password.
   ///
   /// Requirements:
   /// - minimum 8 characters
@@ -72,10 +85,9 @@ extension NullableStringExtensions on String? {
   /// - at least 1 uppercase letter
   /// - at least 1 lowercase letter
   /// - at least 1 number
-  bool get isMediumPassword =>
-      this != null ? _mediumPasswordRegExp.hasMatch(this!) : false;
+  bool get isMediumPassword => this != null ? this!.isMediumPassword : false;
 
-  /// Whether the string is a valid strong password.
+  /// Whether the string is is not null and a valid strong password.
   ///
   /// Requirements:
   /// - minimum 8 characters
@@ -84,6 +96,5 @@ extension NullableStringExtensions on String? {
   /// - at least 1 lowercase letter
   /// - at least 1 number
   /// - at least 1 special character
-  bool get isStrongPassword =>
-      this != null ? _strongPasswordRegExp.hasMatch(this!) : false;
+  bool get isStrongPassword => this != null ? this!.isStrongPassword : false;
 }

@@ -18,7 +18,6 @@ The goal is that by using this package you have to write less (repeating) and mo
 Here is an quick overview over all extensions, helper classes and widgets:
 
 - [Extensions on `String` and `String?`](#extensions-on-string-and-string)
-- [Extensions on `String?`](#extensions-on-string)
 - [Extensions on `DateTime`](#extensions-on-datetime)
 - [Extensions on `List<DateTime>`](#extensions-on-listdatetime)
 - [Extensions on `BuildContext` (Adaptive helpers)](#extensions-on-buildcontext-adaptive-helpers)
@@ -35,6 +34,11 @@ Here is an quick overview over all extensions, helper classes and widgets:
 All features with links to their page in the documentation are listed below:
 
 - ### Extensions on `String` and `String?`:
+    Note: All getters also do a null check if used on `String?`.
+    - #### [isNotBlank](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isNotBlank.html)
+      Whether the string contains characters except of whitespace characters.
+    - #### [isBlank](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isBlank.html)
+      Whether the string is either empty or solely made of whitespace characters.
     - #### [isEmail](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isEmail.html)
       Whether the string is a valid email.
     - #### [isUrl](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isUrl.html)
@@ -45,15 +49,8 @@ All features with links to their page in the documentation are listed below:
       Whether the string is a valid medium password.
     - #### [isStrongPassword](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isStrongPassword.html)
       Whether the string is a valid strong password.
-  
-  
-- ### Extensions on `String?`:
-    - #### [isNotBlank](https://pub.dev/documentation/fleasy/latest/fleasy/NullableStringExtensions/isNotBlank.html)
-      Whether the string is not null nor empty.
-    - #### [isBlank](https://pub.dev/documentation/fleasy/latest/fleasy/NullableStringExtensions/isBlank.html)
-      Whether the string is null or empty.
     - #### [toNullIfBlank()](https://pub.dev/documentation/fleasy/latest/fleasy/NullableStringExtensions/toNullIfBlank.html)
-      Returns null if the string is blank (empty or null) or it's text if not.
+      Returns null if the string `isBlank` or it's text if it `isNotBlank`.
   
   
 - ### Extensions on `DateTime`:
