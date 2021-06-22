@@ -1,3 +1,11 @@
+# 0.2.2
+
+- **Refactor!:** do whitespace check on `isNotBlank` & `isBlank`
+- **Add** `isNotBlank` & `isBlank` to `String` extensions too
+- **Add** `isEasyPassword` to `String?` extensions too
+- **Add** several tests
+- **Improve** doc comments and README
+
 # 0.2.1
 
 - **Add** CI workflow and badge

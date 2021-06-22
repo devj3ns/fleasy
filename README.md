@@ -195,5 +195,6 @@ All features with links to their page in the documentation are listed below:
  - [ ] Add more tests (feel free to contribute ;))
  
 ## Note:
-This package is still in early stages.
-If you notice any bugs not present in issues, please file a new issue. If you are willing to fix or enhance things yourself, you are very welcome to make a pull request.
+This package is still in early stages.  
+If you notice any bugs not present in issues, please file a [new issue](https://github.com/devj3ns/fleasy/issues). If you are willing to fix or enhance things yourself, you are very welcome to make a [pull request](https://github.com/devj3ns/fleasy/pulls).  
+Also: Feedback and suggestions are very welcome. Just [open an issue](https://github.com/devj3ns/fleasy/issues) or write an email to [info@jensbecker.dev](mailto:info@jensbecker.dev).
