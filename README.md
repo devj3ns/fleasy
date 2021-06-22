@@ -62,19 +62,19 @@ All features with links to their page in the documentation are listed below:
     - #### [format(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/format.html)
       Returns a String which represents the date formatted by the given pattern.
     - #### [isToday](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isToday.html)
-      Whether this is today.
+      Whether the date is today.
     - #### [isYesterday](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isYesterday.html)
-      Whether this is yesterday.
+      Whether the date is yesterday.
     - #### [isTomorrow](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isTomorrow.html)
-      Whether this is tomorrow.
+      Whether the date is tomorrow.
     - #### [isFutureDay](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isFutureDay.html)
-      Whether this is a day in the future.
+      Whether the date is a day in the future.
     - #### [isSameDay(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isSameDay.html)
-      Whether this is the same date (not time!) as the given date.
+      Whether the date is on the same day (regardless of the time) as the given date.
     - #### [timeIsZero](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/timeIsZero.html)
-      Whether the time of this is zero.
+      Whether the time of the date is zero/empty.
     - #### [copyWithEmptyTime()](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/copyWithEmptyTime.html)
-      Returns a copy with time set to zero.
+      Returns a copy with time set to zero/empty.
   
   
 - ### Extensions on `List<DateTime>`:

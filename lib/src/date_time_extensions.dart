@@ -25,8 +25,9 @@ extension DateTimeExtensions on DateTime {
   }
 
   /// Returns a [String] which represents the date formatted by the given pattern.
+  /// Patterns can be found [here](https://api.flutter.dev/flutter/intl/DateFormat-class.html) (intl documentation).
   ///
-  /// For example: .format('dd.MM.yy') --> 17.04.21.
+  /// For example: DateTime(2001, 11, 16).format('dd.MM.yy') --> 16.11.01.
   String format(String pattern) => DateFormat(pattern).format(this);
 
   /// Returns the amount of days this differs from the given date.
@@ -34,22 +35,22 @@ extension DateTimeExtensions on DateTime {
       .difference(DateTime(other.year, other.month, other.day))
       .inDays;
 
-  /// Whether this is today.
+  /// Whether the date is today.
   bool get isToday => _differenceInDays(DateTime.now()) == 0;
 
-  /// Whether this is yesterday.
+  /// Whether the date is yesterday.
   bool get isYesterday => _differenceInDays(DateTime.now()) == -1;
 
-  /// Whether this is tomorrow.
+  /// Whether the date is tomorrow.
   bool get isTomorrow => _differenceInDays(DateTime.now()) == 1;
 
-  /// Whether this is a day in the future.
+  /// Whether the date is a day in the future.
   bool get isFutureDay => _differenceInDays(DateTime.now()) > 0;
 
-  /// Whether this is the same date (not time!) as the given date.
+  /// Whether the date is on the same day (regardless of the time) as the given date.
   bool isSameDay(DateTime other) => _differenceInDays(other) == 0;
 
-  /// Whether the time of this is zero.
+  /// Whether the time of the date is zero/empty.
   bool get timeIsZero =>
       hour == 0 &&
       minute == 0 &&
@@ -57,7 +58,7 @@ extension DateTimeExtensions on DateTime {
       millisecond == 0 &&
       microsecond == 0;
 
-  /// Returns a copy with time set to zero.
+  /// Returns a copy with time set to zero/empty.
   DateTime copyWithEmptyTime() =>
       copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
 }
