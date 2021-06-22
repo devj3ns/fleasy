@@ -142,10 +142,23 @@ void main() {
   });
 
   group('format', () {
-    test('returns correct string.', () {
+    test('returns correct string on dd.MM.yy.', () {
       final dateTime = DateTime(2001, 11, 16);
 
       expect(dateTime.format('dd.MM.yy'), equals('16.11.01'));
+    });
+
+    test('returns correct string on yMMMMEEEEd.', () {
+      final dateTime = DateTime(2001, 11, 16);
+
+      expect(
+          dateTime.format('yMMMMEEEEd'), equals('Friday, November 16, 2001'));
+    });
+
+    test('returns correct string on Hms.', () {
+      final dateTime = DateTime(2001, 11, 16);
+
+      expect(dateTime.format('Hms'), equals('00:00:00'));
     });
   });
 }
