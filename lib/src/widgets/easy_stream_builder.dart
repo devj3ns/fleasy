@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'snapshot_info.dart';
+import 'snapshot_state_info.dart';
 
 /// A wrapper around [StreamBuilder] which makes it easy to display
 /// the various states of streaming data from the given [Stream].
@@ -14,24 +13,26 @@ import 'snapshot_info.dart';
 /// --> shows the widget returned by the [dataBuilder].
 ///
 /// 3. Snapshot is empty (data == null or data.isEmpty() on Map & Iterable):
-/// --> shows the [isEmptyText] and [isEmptyIcon].
+/// --> shows [SnapshotStateInfo] with the [isEmptyText] and [isEmptyIcon].
 ///
 /// 4. Snapshot has an error:
-/// --> shows the [errorText] and [errorIcon] and the error message.
+/// --> shows [SnapshotStateInfo] with the [errorText], [errorIcon] and the error message.
 /// NOTE: For safety reasons the snapshots error message is only shown in debug mode.
 ///
 /// Have a look at the [example](https://github.com/devj3ns/fleasy/blob/main/example/lib/main.dart) to see this widget in action.
 class EasyStreamBuilder<T> extends StatelessWidget {
-  /// Creates an [EasyStreamBuilder] which is an wrapper around [StreamBuilder]
-  /// that makes it easy to display the various states of loading data
-  /// from the given [Stream].
+  /// Creates an [EasyStreamBuilder] which is a wrapper around [StreamBuilder]
+  /// that makes it easy to display the various states of loading
+  /// data from the given [Stream].
   const EasyStreamBuilder({
     required this.stream,
     required this.dataBuilder,
     this.errorText = 'Oops, something went wrong.',
-    this.errorIcon = const FaIcon(FontAwesomeIcons.exclamationCircle),
+    this.errorIcon = Icons.error_rounded,
     this.isEmptyText = 'There is nothing to display.',
-    this.isEmptyIcon = const FaIcon(FontAwesomeIcons.timesCircle),
+    this.isEmptyIcon = Icons.close_rounded,
+    this.textStyle,
+    this.iconStyle,
     this.loadingIndicator = const CircularProgressIndicator(),
   });
 
@@ -42,16 +43,38 @@ class EasyStreamBuilder<T> extends StatelessWidget {
   final Widget Function(BuildContext context, T data) dataBuilder;
 
   /// The text which is shown when the snapshot has an error.
+  ///
+  /// The style is taken from the [TextTheme] (bodyText2) of your [ThemeData]
+  /// or - if defined - from [textStyle].
   final String errorText;
 
   /// The icon which is shown when the snapshot has an error.
-  final FaIcon errorIcon;
+  ///
+  /// The style is taken from the [IconThemeData] of your [ThemeData]
+  /// or - if defined - from [iconStyle].
+  final IconData errorIcon;
 
-  /// The text which is shown when the snapshot has no data.
+  /// The text which is shown when the snapshots data is empty.
+  ///
+  /// The style is taken from the [TextTheme] (bodyText2) of your [ThemeData]
+  /// or - if defined - from [textStyle].
   final String isEmptyText;
 
-  /// The icon which is shown when the snapshot has no data.
-  final FaIcon isEmptyIcon;
+  /// The icon which is shown when the snapshots data is empty.
+  ///
+  /// The style is taken from the [IconThemeData] of your [ThemeData]
+  /// or - if defined - from [iconStyle].
+  final IconData isEmptyIcon;
+
+  /// TextStyle used for the  [isEmptyText], [errorText] and error message.
+  ///
+  /// By default the [TextTheme] (bodyText2) of your [ThemeData] is used.
+  final TextStyle? textStyle;
+
+  /// [IconThemeData] used for the [isEmptyIcon].
+  ///
+  /// By default the [IconThemeData] of your [ThemeData] is used.
+  final IconThemeData? iconStyle;
 
   /// The widget which is shown while fetching the snapshots data.
   final Widget loadingIndicator;
@@ -62,22 +85,28 @@ class EasyStreamBuilder<T> extends StatelessWidget {
       stream: stream,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return SnapshotHasErrorInfo(
+          return SnapshotStateInfo(
             text: errorText,
+            textStyle: textStyle,
             icon: errorIcon,
+            iconStyle: iconStyle,
             errorMessage: snapshot.error.toString(),
           );
         } else if (!snapshot.hasData) {
           return snapshot.connectionState == ConnectionState.waiting
               ? loadingIndicator
               : snapshot.data == null
-                  ? SnapshotIsEmptyInfo(
+                  ? SnapshotStateInfo(
                       text: isEmptyText,
+                      textStyle: textStyle,
                       icon: isEmptyIcon,
+                      iconStyle: iconStyle,
                     )
-                  : SnapshotHasErrorInfo(
+                  : SnapshotStateInfo(
                       text: errorText,
+                      textStyle: textStyle,
                       icon: errorIcon,
+                      iconStyle: iconStyle,
                       errorMessage: snapshot.error?.toString() ?? '',
                     );
         } else {
@@ -90,9 +119,11 @@ class EasyStreamBuilder<T> extends StatelessWidget {
           }
 
           return dataIsEmpty
-              ? SnapshotIsEmptyInfo(
+              ? SnapshotStateInfo(
                   text: isEmptyText,
+                  textStyle: textStyle,
                   icon: isEmptyIcon,
+                  iconStyle: iconStyle,
                 )
               : dataBuilder(context, snapshot.data as T);
         }
