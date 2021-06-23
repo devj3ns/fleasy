@@ -50,6 +50,8 @@ All features with links to their page in the documentation:
       Whether the string is a valid strong password.
     - #### [toNullIfBlank()](https://pub.dev/documentation/fleasy/latest/fleasy/NullableStringExtensions/toNullIfBlank.html)
       Returns null if the string `isBlank` or it's text if it `isNotBlank`.
+    - #### [addHttps()](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/addHttps.html)
+        Adds https:// to the link if it does not contain https:// or http:// already. This is helpful to make a link openable when using the [url_launcher](https://pub.dev/packages/url_launcher) package for example.
   
   
 - ### Extensions on `DateTime`:

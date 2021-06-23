@@ -159,4 +159,24 @@ void main() {
       expect(password.isStrongPassword, equals(false));
     });
   });
+
+  group('addHttps', () {
+    test('adds https:// when there is no http:// or https://.', () {
+      const url = 'www.jensbecker.dev';
+
+      expect(url.addHttps(), equals('https://www.jensbecker.dev'));
+    });
+
+    test('does not add https:// when there is http:// already.', () {
+      const url = 'http://www.jensbecker.dev';
+
+      expect(url.addHttps(), equals(url));
+    });
+
+    test('does not add https:// when there is https:// already.', () {
+      const url = 'https://www.jensbecker.dev';
+
+      expect(url.addHttps(), equals(url));
+    });
+  });
 }

@@ -52,6 +52,13 @@ extension StringExtensions on String {
   /// - at least 1 number
   /// - at least 1 special character
   bool get isStrongPassword => _strongPasswordRegExp.hasMatch(this);
+
+  /// Adds https:// to the link if it does not contain https:// or http:// already..
+  ///
+  /// This is helpful to make a link openable when using the [url_launcher](https://pub.dev/packages/url_launcher) package for example.
+  String addHttps() {
+    return contains('https://') || contains('http://') ? this : 'https://$this';
+  }
 }
 
 extension NullableStringExtensions on String? {
