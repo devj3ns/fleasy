@@ -15,7 +15,6 @@ The goal is that by using this package you have to write less (repeating) and mo
 
 ## Overview
 
-Here is an quick overview over all extensions, helper classes and widgets:
 
 - [Extensions on `String` and `String?`](#extensions-on-string-and-string)
 - [Extensions on `DateTime`](#extensions-on-datetime)
@@ -31,7 +30,7 @@ Here is an quick overview over all extensions, helper classes and widgets:
 
 ## Features
 
-All features with links to their page in the documentation are listed below:
+All features with links to their page in the documentation:
 
 - ### Extensions on `String` and `String?`:
     Note: All getters also do a null check if used on `String?`.
@@ -112,7 +111,7 @@ All features with links to their page in the documentation are listed below:
     - #### [canPopPage()](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/canPopPage.html)
       Whether the navigator can be popped.
     - #### [dismissKeyboard()](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/dismissKeyboard.html)
-      Dismisses the keyboard (by removing the focus on this node by moving the primary focus to another node).
+      Dismisses the keyboard.
       
   
 - ### Extensions on `List?`:
@@ -193,8 +192,9 @@ All features with links to their page in the documentation are listed below:
  - [x] Create example app
  - [x] Add automatic GitHub test workflow
  - [ ] Add more tests (feel free to contribute ;))
+ - [ ] Create more examples (full example apps and code snippets)
  
 ## Note:
-This package is still in early stages.  
-If you notice any bugs not present in issues, please file a [new issue](https://github.com/devj3ns/fleasy/issues). If you are willing to fix or enhance things yourself, you are very welcome to make a [pull request](https://github.com/devj3ns/fleasy/pulls).  
-Also: Feedback and suggestions are very welcome. Just [open an issue](https://github.com/devj3ns/fleasy/issues) or write an email to [info@jensbecker.dev](mailto:info@jensbecker.dev).
+**This package is still in early stages**. If you notice any bugs not present in issues, please file a [new issue](https://github.com/devj3ns/fleasy/issues). If you are willing to fix or enhance things yourself, **you are very welcome to make a [pull request](https://github.com/devj3ns/fleasy/pulls)**.  
+
+Also: **Feedback and suggestions are very welcome**. Just [open an issue](https://github.com/devj3ns/fleasy/issues) or write an email to [info@jensbecker.dev](mailto:info@jensbecker.dev).
