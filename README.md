@@ -87,10 +87,6 @@ All features with links to their page in the documentation:
       The horizontal extent of the screen size.
     - #### [screenHeight](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenHeight.html)
       The vertical extent of the screen size.
-    - #### [shortestScreenSide](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/shortestScreenSide.html)
-      The lesser of the magnitudes of the screen width and height.
-    - #### [longestScreenSide](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/longestScreenSide.html)
-      The greater of the magnitudes of the screen width and height.
     - #### [screenIsLandscape](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenIsLandscape.html)
       Whether the device is in landscape mode.
     - #### [screenIsPortrait](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenIsPortrait.html)

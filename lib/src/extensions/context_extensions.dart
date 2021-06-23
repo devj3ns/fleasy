@@ -30,12 +30,6 @@ extension AdpativeContextExtensions on BuildContext {
   /// The vertical extent of the screen size.
   double get screenHeight => mediaQuery.size.height;
 
-  /// The lesser of the magnitudes of the screen width and height.
-  double get shortestScreenSide => mediaQuery.size.shortestSide;
-
-  /// The greater of the magnitudes of the screen width and height.
-  double get longestScreenSide => mediaQuery.size.longestSide;
-
   /// Whether the device is in landscape mode.
   bool get screenIsLandscape => mediaQuery.orientation == Orientation.landscape;
 
@@ -45,7 +39,7 @@ extension AdpativeContextExtensions on BuildContext {
   /// Returns the correct [FormFactor] based on the [FormFactorBreakpoints].
   FormFactor get formFactor {
     // Use shortestScreenSide to detect device type regardless of orientation
-    final deviceWidth = shortestScreenSide;
+    final deviceWidth = mediaQuery.size.shortestSide;
 
     return deviceWidth > FormFactorBreakpoints.desktop
         ? FormFactor.desktop
@@ -59,7 +53,7 @@ extension AdpativeContextExtensions on BuildContext {
   /// Returns the correct [ScreenSize] based on the [FormFactorBreakpoints].
   ScreenSize get screenSize {
     // Use .shortestScreenSide to detect device type regardless of orientation
-    final deviceWidth = shortestScreenSide;
+    final deviceWidth = mediaQuery.size.shortestSide;
 
     return deviceWidth > FormFactorBreakpoints.desktop
         ? ScreenSize.extraLarge
