@@ -1,6 +1,20 @@
+# 0.3.0
+
+- **Add** Flashbar extensions to BuildContext
+    - `showSuccessFlashbar(...)`
+    - `showInfoFlashbar(...)`
+    - `showErrorFlashbar(...)`
+    - `showNoConnectionFlashbar(...)`
+- **Add** `addHtpps` to string extensions
+- **BREAKING:** Refactor `EasyFutureBuilder` & `EasyStreamBuilder`:
+    - `errorIcon` & `isEmptyIcon` now take `IconData` instead of `FaIcon`
+    - new attributes: `textStyle` & `iconStyle`
+- **BREAKING:** Remove shortestScreenSide & longestScreenSide
+- **Improve** README
+
 # 0.2.2
 
-- **Refactor!:** do whitespace check on `isNotBlank` & `isBlank`
+- **BREAKING:** do whitespace check on `isNotBlank` & `isBlank`
 - **Add** `isNotBlank` & `isBlank` to `String` extensions too
 - **Add** `isEasyPassword` to `String?` extensions too
 - **Add** several tests
