@@ -21,6 +21,7 @@ The goal is that by using this package you have to write less (repeating) and mo
 - [Extensions on `List<DateTime>`](#extensions-on-listdatetime)
 - [Extensions on `BuildContext` (Adaptive helpers)](#extensions-on-buildcontext-adaptive-helpers)
 - [Extensions on `BuildContext` (Navigation helpers)](#extensions-on-buildcontext-navigation-helpers)
+- [Extensions on `BuildContext` (Flashbars)](#extensions-on-buildcontext-flashbars)
 - [Extensions on `List?`](#extensions-on-list)
 - [Extensions on `List`](#extensions-on-list-1)
 - [`Date` helper class](#date-helper-class)
@@ -110,6 +111,17 @@ All features with links to their page in the documentation:
       Whether the navigator can be popped.
     - #### [dismissKeyboard()](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/dismissKeyboard.html)
       Dismisses the keyboard.
+      
+- ### Extensions on `BuildContext` (Flashbars):
+    The extensions use the awesome [flash](https://pub.dev/packages/flash) package:
+    - #### [showSuccessFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showSuccessFlashbar.html)
+      Shows a success flashbar/toast with a customizable text.
+    - #### [showInfoFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showInfoFlashbar.html)
+      Shows an info flashbar/toast with a customizable text.
+    - #### [showErrorFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showErrorFlashbar.html)
+      Shows an error flashbar/toast with a customizable text (optional).
+    - #### [showNoConnectionFlashbar()](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showNoConnectionFlashbar.html)
+      Shows a no connection flashbar/toast with a customizable text (optional).
       
   
 - ### Extensions on `List?`:

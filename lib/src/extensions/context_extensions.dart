@@ -1,3 +1,5 @@
+import 'package:flash/flash.dart';
+import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 
 /// Class which defines the form factor breakpoints:
@@ -107,4 +109,99 @@ extension NavigationContextExtensions on BuildContext {
   /// Dismisses the keyboard
   /// (by removing the focus on this node by moving the primary focus to another node).
   void dismissKeyboard() => FocusScope.of(this).unfocus();
+}
+
+extension FlashbarContextExtensions on BuildContext {
+  void _showFlashbar(
+    String message, {
+    required Color iconColor,
+    required IconData icon,
+    int duration = 3,
+  }) {
+    showFlash<Flash>(
+      context: this,
+      duration: Duration(seconds: duration),
+      transitionDuration: const Duration(milliseconds: 750),
+      builder: (context, controller) {
+        return Flash<Flash>.bar(
+          controller: controller,
+          backgroundColor: const Color(0xFF303030),
+          borderRadius: BorderRadius.circular(10),
+          margin: const EdgeInsets.all(Insets.l),
+          child: FlashBar(
+            content: Text(
+              message,
+              style: const TextStyle(fontSize: 14.0, color: Colors.white),
+            ),
+            icon: Icon(
+              icon,
+              color: iconColor,
+              size: 28,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  /// Shows a success flashbar/toast with a customizable text.
+  ///
+  /// It uses [flash](https://pub.dev/packages/flash).
+  void showSuccessFlashbar({
+    required String message,
+    int duration = 3,
+  }) {
+    _showFlashbar(
+      message,
+      duration: duration,
+      icon: Icons.check_rounded,
+      iconColor: Colors.green[400]!,
+    );
+  }
+
+  /// Shows an info flashbar/toast with a customizable text.
+  ///
+  /// It uses [flash](https://pub.dev/packages/flash).
+  void showInfoFlashbar({
+    required String message,
+    int duration = 3,
+  }) {
+    _showFlashbar(
+      message,
+      duration: duration,
+      icon: Icons.info_outline_rounded,
+      iconColor: Colors.blue[400]!,
+    );
+  }
+
+  /// Shows an error flashbar/toast with a customizable text (optional).
+  ///
+  /// It uses [flash](https://pub.dev/packages/flash).
+  void showErrorFlashbar({
+    String message = 'Oops, something went wrong.',
+    int duration = 3,
+  }) {
+    _showFlashbar(
+      message,
+      duration: duration,
+      icon: Icons.error_outline_rounded,
+      iconColor: Colors.red[400]!,
+    );
+  }
+
+  /// Shows a no connection flashbar/toast with a customizable text (optional).
+  ///
+  /// It uses [flash](https://pub.dev/packages/flash).
+  void showNoConnectionFlashbar({
+    String message =
+        'A connection to the server cannot be established. Are you connected to the internet?',
+    int duration = 3,
+  }) {
+    _showFlashbar(
+      message,
+      duration: duration,
+      icon: Icons.wifi_off_rounded,
+      iconColor: Colors.red[400]!,
+    );
+  }
 }
