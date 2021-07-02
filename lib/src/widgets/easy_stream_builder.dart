@@ -25,6 +25,7 @@ class EasyStreamBuilder<T> extends StatelessWidget {
   /// that makes it easy to display the various states of loading
   /// data from the given [Stream].
   const EasyStreamBuilder({
+    Key? key,
     required this.stream,
     required this.dataBuilder,
     this.errorText = 'Oops, something went wrong.',
@@ -34,7 +35,7 @@ class EasyStreamBuilder<T> extends StatelessWidget {
     this.textStyle,
     this.iconStyle,
     this.loadingIndicator = const CircularProgressIndicator(),
-  });
+  }) : super(key: key);
 
   /// The asynchronous computation to which this builder is currently connected.
   final Stream<T> stream;

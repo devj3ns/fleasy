@@ -10,12 +10,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 /// (if one is defined and the app runs in debug mode).
 class SnapshotStateInfo extends StatelessWidget {
   const SnapshotStateInfo({
+    Key? key,
     required this.text,
     this.textStyle,
     required this.icon,
     this.iconStyle,
     this.errorMessage,
-  });
+  }) : super(key: key);
 
   /// The text shown under the [icon].
   final String text;
