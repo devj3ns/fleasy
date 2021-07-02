@@ -28,6 +28,7 @@ The goal is that by using this package you have to write less (repeating) and mo
 - [`DeviceType` helper class](#devicetype-helper-class)
 - [`Insets` helper class](#insets-helper-class)
 - [Flutter Widgets](#flutter-widgets)
+- [Analysis Options](#analysis-options)
 
 ## Features
 
@@ -194,7 +195,18 @@ All features with links to their page in the documentation:
       A wrapper around `FutureBuilder` which makes it easy to display the various states of fetching data from the given `Future`. See [example](https://github.com/devj3ns/fleasy/blob/main/example/lib/main.dart).
     - #### [EasyStreamBuilder<T>](https://pub.dev/documentation/fleasy/latest/fleasy/EasyStreamBuilder-class.html)
       A wrapper around `StreamBuilder` which makes it easy to display the various states of streaming data from the given `Stream`. See [example](https://github.com/devj3ns/fleasy/blob/main/example/lib/main.dart).
-        
+
+- ### Analysis options: 
+    You can use the same analysis options which this package uses by simply including them in your `analysis_options.yaml` file:
+    ```yaml
+    include: package:fleasy/analysis_options.yaml
+    ```
+   They are based on:
+    - [package:flutter_lints](https://pub.dev/packages/flutter_lints) (therefore also [package:lints](https://pub.dev/packages/lints))
+    - my favorite rules from [package:dart_code_metrics](https://pub.dev/packages/dart_code_metrics)
+    - my favorite lint rules which are not present in [package:flutter_lints](https://pub.dev/packages/flutter_lints)
+      
+   For more details, have a look at the `analysis_options.yaml` file [here](https://github.com/devj3ns/fleasy/blob/main/lib/analysis_options.yaml).
 
 ## To-Do's:
  - [x] Improve README

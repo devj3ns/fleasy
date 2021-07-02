@@ -1,3 +1,6 @@
+# 0.3.1
+- **Feat:** make analysis_options.yaml public
+
 # 0.3.0
 
 - **Add** Flashbar extensions to BuildContext
