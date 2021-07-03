@@ -1,5 +1,7 @@
 # 0.3.1
-- **Feat:** make analysis_options.yaml public
+- **Improve** analysis options
+- **Add** key to widget constructors
+- **Export** analysis_options.yaml (see [new section in README](https://pub.dev/packages/fleasy#analysis-options))
 
 # 0.3.0
 
