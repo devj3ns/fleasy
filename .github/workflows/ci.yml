@@ -8,6 +8,7 @@ on:
       - '.github/**'
       - '*.md'
       - 'example/**'
+      - 'resources/**'
   pull_request:
     branches:
       - main
