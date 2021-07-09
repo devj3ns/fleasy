@@ -1,6 +1,6 @@
-# Fleasy
-
 <p align="center">
+<a href="https://pub.dev/packages/fleasy" target="_blank"><img src="https://raw.githubusercontent.com/devj3ns/fleasy/main/resources/logo.png" alt="Fleasy Logo" height="120px"></a>
+<br>
 <a href="https://pub.dev/packages/fleasy"><img src="https://img.shields.io/pub/v/fleasy?color=green" alt="pub.dev badge"></a>
 <a href="https://github.com/devj3ns/fleasy/actions/workflows/ci.yml"><img alt="GitHub actions" src="https://github.com/devj3ns/fleasy/actions/workflows/ci.yml/badge.svg"></a>
 <a href="https://github.com/devj3ns/fleasy/commits/main"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/devj3ns/fleasy?color=blue&label=commits"></a>
