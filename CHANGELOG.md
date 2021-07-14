@@ -1,7 +1,11 @@
+# 0.3.2
+- **Add** logo
+- **Add** GitHub workflow for automatically publishing new versions to pub.dev on a new release
+
 # 0.3.1
 - **Improve** analysis options
 - **Add** key to widget constructors
-- **Export** analysis_options.yaml (see [new section in README](https://pub.dev/packages/fleasy#analysis-options))
+- **Export** `analysis_options.yaml` (see [new section in README](https://pub.dev/packages/fleasy#analysis-options))
 
 # 0.3.0
 
