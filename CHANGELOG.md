@@ -1,3 +1,7 @@
+# 0.4.0
+- **Add** `byFormFactor<T>` to extensions on `BuildContext` (see [docs](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/byFormFactor.html))
+- **Add** helper getters to `context.formFactor` & `context.screenSize` enums
+
 # 0.3.2
 - **Add** logo
 - **Add** GitHub workflow for automatically publishing new versions to pub.dev on a new release
@@ -9,7 +13,7 @@
 
 # 0.3.0
 
-- **Add** Flashbar extensions to BuildContext
+- **Add** Flashbar extensions to `BuildContext`
     - `showSuccessFlashbar(...)`
     - `showInfoFlashbar(...)`
     - `showErrorFlashbar(...)`
