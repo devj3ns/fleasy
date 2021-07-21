@@ -99,7 +99,12 @@ All features with links to their page in the documentation:
       Returns the correct [FormFactor](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactor-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html).
     - #### [screenSize](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenSize.html)
       Returns the correct [ScreenSize](https://pub.dev/documentation/fleasy/latest/fleasy/ScreenSize-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html). 
-     
+    - #### [byFormFactor<T>](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/byFormFactor.html)
+      Returns onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/formFactor.html).
+      Example:
+      ```dart
+      double width = context.byFormFactor<double>(onHandset: 10, onTablet: 25, onDesktop: 50);
+      ```   
  
 - ### Extensions on `BuildContext` (Navigation helpers):
     - #### [pushPage(...)](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/pushPage.html)
