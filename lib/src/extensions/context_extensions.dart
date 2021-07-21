@@ -16,8 +16,36 @@ class FormFactorBreakpoints {
 /// Enum which defines the possible form factors.
 enum FormFactor { desktop, tablet, handset, watch }
 
+extension FormFactorExtensions on FormFactor {
+  /// Whether `context.formFactor` is equal to `FormFactor.desktop`.
+  bool get isDesktop => this == FormFactor.desktop;
+
+  /// Whether `context.formFactor` is equal to `FormFactor.tablet`.
+  bool get isTablet => this == FormFactor.tablet;
+
+  /// Whether `context.formFactor` is equal to `FormFactor.handset`.
+  bool get isHandset => this == FormFactor.handset;
+
+  /// Whether `context.formFactor` is equal to `FormFactor.watch`.
+  bool get isWatch => this == FormFactor.watch;
+}
+
 /// Alternative to [FormFactor], which is more abstract and defines it in terms of small to large.
 enum ScreenSize { small, normal, large, extraLarge }
+
+extension ScreenSizeExtensions on ScreenSize {
+  /// Whether `context.screenSize` is equal to `ScreenSize.small`.
+  bool get isSmall => this == ScreenSize.small;
+
+  /// Whether `context.screenSize` is equal to `ScreenSize.normal`.
+  bool get isNormal => this == ScreenSize.normal;
+
+  /// Whether `context.screenSize` is equal to `ScreenSize.large`.
+  bool get isLarge => this == ScreenSize.large;
+
+  /// Whether `context.screenSize` is equal to `ScreenSize.extraLarge`.
+  bool get isExtraLarge => this == ScreenSize.extraLarge;
+}
 
 extension AdpativeContextExtensions on BuildContext {
   /// The [MediaQueryData] from the closest instance of this class that encloses the given context.
