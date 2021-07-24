@@ -99,11 +99,11 @@ All features with links to their page in the documentation:
       Returns the correct [FormFactor](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactor-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html).
     - #### [screenSize](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenSize.html)
       Returns the correct [ScreenSize](https://pub.dev/documentation/fleasy/latest/fleasy/ScreenSize-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html). 
-    - #### [byFormFactor<T>](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/byFormFactor.html)
-      Returns onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/formFactor.html).
+    - #### [byFormFactor<T>(...)](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/byFormFactor.html)
+      Returns the given onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/formFactor.html).
       Example:
       ```dart
-      double width = context.byFormFactor<double>(onHandset: 10, onTablet: 25, onDesktop: 50);
+      int width = context.byFormFactor<int>(onHandset: 10, onTablet: 25, onDesktop: 50);
       ```   
  
 - ### Extensions on `BuildContext` (Navigation helpers):
@@ -212,14 +212,6 @@ All features with links to their page in the documentation:
     - my favorite lint rules which are not present in [package:flutter_lints](https://pub.dev/packages/flutter_lints)
       
    For more details, have a look at the `analysis_options.yaml` file [here](https://github.com/devj3ns/fleasy/blob/main/lib/analysis_options.yaml).
-
-## To-Do's:
- - [x] Improve README
- - [x] Document the complete code
- - [x] Create example app
- - [x] Add automatic GitHub test workflow
- - [ ] Add more tests (feel free to contribute ;))
- - [ ] Create more examples (full example apps and code snippets)
  
 ## Note:
 **This package is still in early stages**. If you notice any bugs not present in issues, please file a [new issue](https://github.com/devj3ns/fleasy/issues). If you are willing to fix or enhance things yourself, **you are very welcome to make a [pull request](https://github.com/devj3ns/fleasy/pulls)**.  

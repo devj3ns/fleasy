@@ -94,11 +94,11 @@ extension AdpativeContextExtensions on BuildContext {
                 : ScreenSize.small;
   }
 
-  /// Returns onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor].
+  /// Returns the given onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor].
   ///
   /// Example:
   /// ```dart
-  /// double width = context.byFormFactor<double>(onHandset: 10, onTablet: 25, onDesktop: 50);
+  /// int width = context.byFormFactor<int>(onHandset: 10, onTablet: 25, onDesktop: 50);
   /// ```
   T byFormFactor<T>({
     T? onWatch,
