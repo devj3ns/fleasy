@@ -61,8 +61,20 @@ void main() {
       expect(email.isEmail, equals(true));
     });
 
+    test('returns true on valid Email (capitalized).', () {
+      const email = 'info@JensBecker.dev';
+
+      expect(email.isEmail, equals(true));
+    });
+
     test('returns false on invalid Email.', () {
       const email = 'info@jensbeckerdev';
+
+      expect(email.isEmail, equals(false));
+    });
+
+    test('returns false on empty string.', () {
+      const email = '';
 
       expect(email.isEmail, equals(false));
     });

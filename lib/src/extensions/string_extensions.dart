@@ -20,7 +20,7 @@ extension StringExtensions on String {
   bool get isBlank => trim().isEmpty;
 
   /// Whether the string is a valid email.
-  bool get isEmail => _emailRegExp.hasMatch(this);
+  bool get isEmail => _emailRegExp.hasMatch(toLowerCase());
 
   /// Whether the string is a valid url.
   bool get isUrl => _urlRegExp.hasMatch(this);
@@ -63,7 +63,7 @@ extension StringExtensions on String {
 
 extension NullableStringExtensions on String? {
   /// Whether the string is not null and contains characters except of whitespace characters.
-  bool get isNotBlank => this != null && this!.trim().isNotEmpty;
+  bool get isNotBlank => this?.trim().isNotEmpty ?? false;
 
   /// Whether the string is either null, empty or is solely made of whitespace characters.
   bool get isBlank => !isNotBlank;
@@ -72,17 +72,17 @@ extension NullableStringExtensions on String? {
   String? toNullIfBlank() => isNotBlank ? this : null;
 
   /// Whether the string is not null and a valid email.
-  bool get isEmail => this != null ? this!.isEmail : false;
+  bool get isEmail => this?.toLowerCase().isEmail ?? false;
 
   /// Whether the string is not null and a valid url.
-  bool get isUrl => this != null ? this!.isUrl : false;
+  bool get isUrl => this?.isUrl ?? false;
 
   /// Whether the string is not null and a valid easy password.
   ///
   /// Requirements:
   /// - minimum 8 characters
   /// - no whitespaces
-  bool get isEasyPassword => this != null ? this!.isEasyPassword : false;
+  bool get isEasyPassword => this?.isEasyPassword ?? false;
 
   /// Whether the string is not null and a valid medium password.
   ///
@@ -92,7 +92,7 @@ extension NullableStringExtensions on String? {
   /// - at least 1 uppercase letter
   /// - at least 1 lowercase letter
   /// - at least 1 number
-  bool get isMediumPassword => this != null ? this!.isMediumPassword : false;
+  bool get isMediumPassword => this?.isMediumPassword ?? false;
 
   /// Whether the string is is not null and a valid strong password.
   ///
@@ -103,5 +103,5 @@ extension NullableStringExtensions on String? {
   /// - at least 1 lowercase letter
   /// - at least 1 number
   /// - at least 1 special character
-  bool get isStrongPassword => this != null ? this!.isStrongPassword : false;
+  bool get isStrongPassword => this?.isStrongPassword ?? false;
 }
