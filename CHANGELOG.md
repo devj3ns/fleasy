@@ -1,3 +1,7 @@
+# 0.4.1
+- **Fix:** `isEmail` is now case insensitive
+- **Improve** README and doc comments
+
 # 0.4.0
 - **Add** `byFormFactor<T>` to extensions on `BuildContext` (see [docs](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/byFormFactor.html))
 - **Add** helper getters to `context.formFactor` & `context.screenSize` enums
