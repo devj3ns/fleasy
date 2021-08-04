@@ -1,29 +1,31 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'snapshot_state_info.dart';
 
 /// A wrapper around [FutureBuilder] which makes it easy to display
-/// the various states of fetching data from the given [Future].
+/// the various states of fetching data asynchronous.
 ///
 /// There are 4 possible states:
-/// 1. Snapshot is loading:
+/// 1. The snapshot is loading:
 /// --> shows the [loadingIndicator].
 ///
-/// 2. Snapshot has data:
+/// 2. The snapshot is loaded:
 /// --> shows the widget returned by the [dataBuilder].
 ///
-/// 3. Snapshot is empty (data == null or data.isEmpty() on Map & Iterable):
+/// 3. The snapshots data is loaded but empty (only works on Iterable/Map):
 /// --> shows [SnapshotStateInfo] with the [isEmptyText] and [isEmptyIcon].
 ///
-/// 4. Snapshot has an error:
+/// 4. The snapshot has an error:
 /// --> shows [SnapshotStateInfo] with the [errorText], [errorIcon] and the error message.
 /// NOTE: For safety reasons the snapshots error message is only shown in debug mode.
 ///
 /// Have a look at the [example](https://github.com/devj3ns/fleasy/blob/main/example/lib/main.dart) to see this widget in action.
 class EasyFutureBuilder<T> extends StatelessWidget {
   /// Creates an [EasyFutureBuilder] which is a wrapper around [FutureBuilder]
-  /// that makes it easy to display the various states of loading
-  /// data from the given [Future].
+  /// that makes it easy to display the various states of fetching data asynchronous.
+  ///
+  /// See the [documentation page](https://pub.dev/documentation/fleasy/latest/fleasy/EasyFutureBuilder-class.html) for more details.
   const EasyFutureBuilder({
     Key? key,
     required this.future,
@@ -86,6 +88,10 @@ class EasyFutureBuilder<T> extends StatelessWidget {
       future: future,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
+          if (kDebugMode) {
+            throw (snapshot.error!);
+          }
+
           return SnapshotStateInfo(
             text: errorText,
             textStyle: textStyle,
@@ -94,32 +100,31 @@ class EasyFutureBuilder<T> extends StatelessWidget {
             errorMessage: snapshot.error.toString(),
           );
         } else if (!snapshot.hasData) {
-          return snapshot.connectionState == ConnectionState.waiting
-              ? loadingIndicator
-              : snapshot.data == null
-                  ? SnapshotStateInfo(
-                      text: isEmptyText,
-                      textStyle: textStyle,
-                      icon: isEmptyIcon,
-                      iconStyle: iconStyle,
-                    )
-                  : SnapshotStateInfo(
-                      text: errorText,
-                      textStyle: textStyle,
-                      icon: errorIcon,
-                      iconStyle: iconStyle,
-                      errorMessage: snapshot.error?.toString() ?? '',
-                    );
-        } else {
-          var dataIsEmpty = false;
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return loadingIndicator;
+          } else if (snapshot.data == null && null is T) {
+            return dataBuilder(context, snapshot.data as T);
+          } else {
+            if (kDebugMode) {
+              throw (snapshot.error!);
+            }
 
-          if (snapshot.data is Iterable) {
-            dataIsEmpty = (snapshot.data as Iterable).isEmpty;
-          } else if (snapshot.data is Map) {
-            dataIsEmpty = (snapshot.data as Map).isEmpty;
+            return SnapshotStateInfo(
+              text: errorText,
+              textStyle: textStyle,
+              icon: errorIcon,
+              iconStyle: iconStyle,
+              errorMessage: snapshot.error?.toString(),
+            );
           }
+        } else {
+          final isEmpty = snapshot.data is Iterable
+              ? (snapshot.data as Iterable).isEmpty
+              : snapshot.data is Map
+                  ? (snapshot.data as Map).isEmpty
+                  : false;
 
-          return dataIsEmpty
+          return isEmpty
               ? SnapshotStateInfo(
                   text: isEmptyText,
                   textStyle: textStyle,
