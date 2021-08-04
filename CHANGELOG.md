@@ -1,3 +1,8 @@
+# 0.5.0
+- **`EasyStreamBuilder` & `EasyFutureBuilder`:**
+  - When the snapshot's data is `null` (and `T` is nullable), it will now show the widget returned by the `dataBuilder`. Before, it showed the `isEmptyText` and `isEmptyIcon`.
+  - When the snapshot has an error in debug mode, it will now `throw` the error to give more insights. Before, it just displayed the error as a text.
+
 # 0.4.1
 - **Fix:** `isEmail` is now case insensitive
 - **Improve** README and doc comments
