@@ -25,13 +25,25 @@ dart_code_metrics:
     - avoid-wrapping-in-padding
     - avoid-returning-widgets
     - avoid-unnecessary-setstate
+    #- avoid-ignoring-return-values
+    - avoid-unused-parameters
+    #- avoid-late-keyword
+    #- avoid-non-null-assertion
     - always-remove-listener
     - double-literal-format
     - newline-before-return
     - no-boolean-literal-compare
     - no-equal-then-else
+    #- no-equal-arguments
     - no-object-declaration
+    - no-empty-block
+    #- no-magic-number
     - prefer-conditional-expressions
+    #- prefer-match-file-name
+    - prefer-const-border-radius
+    - prefer-extracting-callbacks
+    - binary-expression-operand-order
+    - double-literal-format
 
 linter:
   rules:

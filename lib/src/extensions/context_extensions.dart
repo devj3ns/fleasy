@@ -161,13 +161,13 @@ extension NavigationContextExtensions on BuildContext {
 }
 
 extension FlashbarContextExtensions on BuildContext {
-  void _showFlashbar(
+  Future _showFlashbar(
     String message, {
     required Color iconColor,
     required IconData icon,
     int duration = 3,
   }) {
-    showFlash<Flash>(
+    return showFlash<Flash>(
       context: this,
       duration: Duration(seconds: duration),
       transitionDuration: const Duration(milliseconds: 750),
@@ -175,7 +175,7 @@ extension FlashbarContextExtensions on BuildContext {
         return Flash<Flash>.bar(
           controller: controller,
           backgroundColor: const Color(0xFF303030),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           margin: const EdgeInsets.all(Insets.l),
           child: FlashBar(
             content: Text(
@@ -196,61 +196,61 @@ extension FlashbarContextExtensions on BuildContext {
   /// Shows a success flashbar/toast with a customizable text.
   ///
   /// It uses [flash](https://pub.dev/packages/flash).
-  void showSuccessFlashbar({
+  Future showSuccessFlashbar({
     required String message,
     int duration = 3,
   }) {
-    _showFlashbar(
+    return _showFlashbar(
       message,
       duration: duration,
       icon: Icons.check_rounded,
-      iconColor: Colors.green[400]!,
+      iconColor: Colors.green.shade400,
     );
   }
 
   /// Shows an info flashbar/toast with a customizable text.
   ///
   /// It uses [flash](https://pub.dev/packages/flash).
-  void showInfoFlashbar({
+  Future showInfoFlashbar({
     required String message,
     int duration = 3,
   }) {
-    _showFlashbar(
+    return _showFlashbar(
       message,
       duration: duration,
       icon: Icons.info_outline_rounded,
-      iconColor: Colors.blue[400]!,
+      iconColor: Colors.blue.shade400,
     );
   }
 
   /// Shows an error flashbar/toast with a customizable text (optional).
   ///
   /// It uses [flash](https://pub.dev/packages/flash).
-  void showErrorFlashbar({
+  Future showErrorFlashbar({
     String message = 'Oops, something went wrong.',
     int duration = 3,
   }) {
-    _showFlashbar(
+    return _showFlashbar(
       message,
       duration: duration,
       icon: Icons.error_outline_rounded,
-      iconColor: Colors.red[400]!,
+      iconColor: Colors.red.shade400,
     );
   }
 
   /// Shows a no connection flashbar/toast with a customizable text (optional).
   ///
   /// It uses [flash](https://pub.dev/packages/flash).
-  void showNoConnectionFlashbar({
+  Future showNoConnectionFlashbar({
     String message =
         'A connection to the server cannot be established. Are you connected to the internet?',
     int duration = 3,
   }) {
-    _showFlashbar(
+    return _showFlashbar(
       message,
       duration: duration,
       icon: Icons.wifi_off_rounded,
-      iconColor: Colors.red[400]!,
+      iconColor: Colors.red.shade400,
     );
   }
 }
