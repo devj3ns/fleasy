@@ -163,29 +163,29 @@ extension NavigationContextExtensions on BuildContext {
 extension FlashbarContextExtensions on BuildContext {
   Future _showFlashbar(
     String message, {
-    required Color iconColor,
+    Color? iconColor,
     required IconData icon,
-    int duration = 3,
+    Duration duration = const Duration(seconds: 3),
   }) {
     return showFlash<Flash>(
       context: this,
-      duration: Duration(seconds: duration),
+      duration: duration,
       transitionDuration: const Duration(milliseconds: 750),
       builder: (context, controller) {
         return Flash<Flash>.bar(
           controller: controller,
-          backgroundColor: const Color(0xFF303030),
+          backgroundColor: Theme.of(this).dialogBackgroundColor,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           margin: const EdgeInsets.all(Insets.l),
           child: FlashBar(
             content: Text(
               message,
-              style: const TextStyle(fontSize: 14.0, color: Colors.white),
+              style: Theme.of(this).textTheme.bodyText2,
             ),
             icon: Icon(
               icon,
               color: iconColor,
-              size: 28,
+              size: Theme.of(this).iconTheme.size ?? 25,
             ),
           ),
         );
@@ -193,12 +193,15 @@ extension FlashbarContextExtensions on BuildContext {
     );
   }
 
-  /// Shows a success flashbar/toast with a customizable text.
+  /// Shows a success flashbar/toast with a customizable info message.
   ///
-  /// It uses [flash](https://pub.dev/packages/flash).
+  /// It uses the following theme values for styling:
+  /// - dialogBackgroundColor
+  /// - textTheme.bodyText2
+  /// - iconTheme.size
   Future showSuccessFlashbar({
     required String message,
-    int duration = 3,
+    Duration duration = const Duration(seconds: 3),
   }) {
     return _showFlashbar(
       message,
@@ -208,12 +211,15 @@ extension FlashbarContextExtensions on BuildContext {
     );
   }
 
-  /// Shows an info flashbar/toast with a customizable text.
+  /// Shows an info flashbar/toast with a customizable info message.
   ///
-  /// It uses [flash](https://pub.dev/packages/flash).
+  /// It uses the following theme values for styling:
+  /// - dialogBackgroundColor
+  /// - textTheme.bodyText2
+  /// - iconTheme.size
   Future showInfoFlashbar({
     required String message,
-    int duration = 3,
+    Duration duration = const Duration(seconds: 3),
   }) {
     return _showFlashbar(
       message,
@@ -223,12 +229,15 @@ extension FlashbarContextExtensions on BuildContext {
     );
   }
 
-  /// Shows an error flashbar/toast with a customizable text (optional).
+  /// Shows an error flashbar/toast with a customizable info message (optional).
   ///
-  /// It uses [flash](https://pub.dev/packages/flash).
+  /// It uses the following theme values for styling:
+  /// - dialogBackgroundColor
+  /// - textTheme.bodyText2
+  /// - iconTheme.size
   Future showErrorFlashbar({
     String message = 'Oops, something went wrong.',
-    int duration = 3,
+    Duration duration = const Duration(seconds: 3),
   }) {
     return _showFlashbar(
       message,
@@ -238,13 +247,16 @@ extension FlashbarContextExtensions on BuildContext {
     );
   }
 
-  /// Shows a no connection flashbar/toast with a customizable text (optional).
+  /// Shows a no connection flashbar/toast with a customizable info message (optional).
   ///
-  /// It uses [flash](https://pub.dev/packages/flash).
+  /// It uses the following theme values for styling:
+  /// - dialogBackgroundColor
+  /// - textTheme.bodyText2
+  /// - iconTheme.size
   Future showNoConnectionFlashbar({
     String message =
-        'A connection to the server cannot be established. Are you connected to the internet?',
-    int duration = 3,
+        'No internet connection. Please turn on Wi-Fi or cellular data.',
+    Duration duration = const Duration(seconds: 3),
   }) {
     return _showFlashbar(
       message,
