@@ -1,3 +1,7 @@
+# 0.6.0
+- Make flashbars more customizable (via theme)
+- Add more dart code metric rules
+
 # 0.5.0
 - **`EasyStreamBuilder` & `EasyFutureBuilder`:**
   - When the snapshot's data is `null` (and `T` is nullable), it will now show the widget returned by the `dataBuilder`. Before, it showed the `isEmptyText` and `isEmptyIcon`.
