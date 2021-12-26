@@ -18,7 +18,6 @@ The goal is that by using this package you have to write less (repeating) and mo
 
 - [Extensions on `String` and `String?`](#extensions-on-string-and-string)
 - [Extensions on `DateTime`](#extensions-on-datetime)
-- [Extensions on `List<DateTime>`](#extensions-on-listdatetime)
 - [Extensions on `BuildContext` (Adaptive helpers)](#extensions-on-buildcontext-adaptive-helpers)
 - [Extensions on `BuildContext` (Navigation helpers)](#extensions-on-buildcontext-navigation-helpers)
 - [Extensions on `BuildContext` (Flashbars)](#extensions-on-buildcontext-flashbars)
@@ -75,13 +74,6 @@ All features with links to their page in the documentation:
       Whether the time of the date is zero/empty.
     - #### [copyWithEmptyTime()](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/copyWithEmptyTime.html)
       Returns a copy with time set to zero/empty.
-  
-  
-- ### Extensions on `List<DateTime>`:
-    - #### [containsDate(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeListExtensions/containsDate.html)
-      Whether the list contains the given date (regardless of the time).
-    - #### [indexOfDate(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeListExtensions/indexOfDate.html)
-      Returns the index of the given date (regardless of the time).
   
   
 - ### Extensions on `BuildContext` (Adaptive helpers):
