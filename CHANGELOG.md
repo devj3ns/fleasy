@@ -1,3 +1,8 @@
+# 0.7.0
+- Add theme helpers/extensions on `BuildContext`
+- Add `prefer_relative_imports` lint rule
+- **Breaking:** remove extensions on `List<DateTime>`
+
 # 0.6.0
 - Make flashbars more customizable (via theme)
 - Add more dart code metric rules
