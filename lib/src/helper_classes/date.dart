@@ -1,4 +1,4 @@
-import '../extensions/date_time_extensions.dart';
+import '../extensions/date_time/helpers.dart';
 
 /// A helper class for generating [DateTime] objects without a time easily.
 class Date {

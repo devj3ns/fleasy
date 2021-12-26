@@ -12,13 +12,7 @@ final RegExp _mediumPasswordRegExp =
 final RegExp _strongPasswordRegExp =
     RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])\S{8,}$');
 
-extension StringExtensions on String {
-  /// Whether the string contains characters except of whitespace characters.
-  bool get isNotBlank => trim().isNotEmpty;
-
-  /// Whether the string is either empty or solely made of whitespace characters.
-  bool get isBlank => trim().isEmpty;
-
+extension StringValidatorsExtensions on String {
   /// Whether the string is a valid email.
   bool get isEmail => _emailRegExp.hasMatch(toLowerCase());
 
@@ -61,16 +55,7 @@ extension StringExtensions on String {
   }
 }
 
-extension NullableStringExtensions on String? {
-  /// Whether the string is not null and contains characters except of whitespace characters.
-  bool get isNotBlank => this?.trim().isNotEmpty ?? false;
-
-  /// Whether the string is either null, empty or is solely made of whitespace characters.
-  bool get isBlank => !isNotBlank;
-
-  /// Returns null if the string [isBlank] or it's text if it [isNotBlank].
-  String? toNullIfBlank() => isNotBlank ? this : null;
-
+extension NullableStringValidatorsExtensions on String? {
   /// Whether the string is not null and a valid email.
   bool get isEmail => this?.toLowerCase().isEmail ?? false;
 
