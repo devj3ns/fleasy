@@ -44,6 +44,7 @@ dart_code_metrics:
     - prefer-extracting-callbacks
     - binary-expression-operand-order
     - double-literal-format
+    - prefer_relative_imports
 
 linter:
   rules:
