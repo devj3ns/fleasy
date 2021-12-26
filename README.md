@@ -17,12 +17,13 @@ The goal is that by using this package you have to write less (repeating) and mo
 
 
 - [Extensions on `String` and `String?`](#extensions-on-string-and-string)
-- [Extensions on `DateTime`](#extensions-on-datetime)
 - [Extensions on `BuildContext` (Adaptive helpers)](#extensions-on-buildcontext-adaptive-helpers)
+- [Extensions on `BuildContext` (Theme helpers)](#extensions-on-buildcontext-theme-helpers)
 - [Extensions on `BuildContext` (Navigation helpers)](#extensions-on-buildcontext-navigation-helpers)
 - [Extensions on `BuildContext` (Flashbars)](#extensions-on-buildcontext-flashbars)
 - [Extensions on `List?`](#extensions-on-list)
 - [Extensions on `List`](#extensions-on-list-1)
+- [Extensions on `DateTime`](#extensions-on-datetime)
 - [`Date` helper class](#date-helper-class)
 - [`DeviceType` helper class](#devicetype-helper-class)
 - [`Insets` helper class](#insets-helper-class)
@@ -35,104 +36,111 @@ All features with links to their page in the documentation:
 
 - ### Extensions on `String` and `String?`:
     Note: All getters also do a null check if used on `String?`.
-    - #### [isNotBlank](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isNotBlank.html)
+    - #### [isNotBlank](https://pub.dev/documentation/fleasy/latest/fleasy/StringBlankHelpers/isNotBlank.html)
       Whether the string contains characters except of whitespace characters.
-    - #### [isBlank](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isBlank.html)
+    - #### [isBlank](https://pub.dev/documentation/fleasy/latest/fleasy/StringBlankHelpers/isBlank.html)
       Whether the string is either empty or solely made of whitespace characters.
-    - #### [isEmail](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isEmail.html)
+    - #### [toNullIfBlank()](https://pub.dev/documentation/fleasy/latest/fleasy/NullableStringExtensions/toNullIfBlank.html)
+      Returns null if the string `isBlank` or it's text if it `isNotBlank`.
+    - #### [isEmail](https://pub.dev/documentation/fleasy/latest/fleasy/StringValidators/isEmail.html)
       Whether the string is a valid email.
-    - #### [isUrl](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isUrl.html)
+    - #### [isUrl](https://pub.dev/documentation/fleasy/latest/fleasy/StringValidators/isUrl.html)
       Whether the string is a valid url.
-    - #### [isEasyPassword](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isEasyPassword.html)
+    - #### [isEasyPassword](https://pub.dev/documentation/fleasy/latest/fleasy/StringValidators/isEasyPassword.html)
       Whether the string is a valid easy password.
-    - #### [isMediumPassword](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isMediumPassword.html)
+    - #### [isMediumPassword](https://pub.dev/documentation/fleasy/latest/fleasy/StringValidators/isMediumPassword.html)
       Whether the string is a valid medium password.
     - #### [isStrongPassword](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/isStrongPassword.html)
       Whether the string is a valid strong password.
-    - #### [toNullIfBlank()](https://pub.dev/documentation/fleasy/latest/fleasy/NullableStringExtensions/toNullIfBlank.html)
-      Returns null if the string `isBlank` or it's text if it `isNotBlank`.
-    - #### [addHttps()](https://pub.dev/documentation/fleasy/latest/fleasy/StringExtensions/addHttps.html)
+    - #### [addHttps()](https://pub.dev/documentation/fleasy/latest/fleasy/StringValidators/addHttps.html)
         Adds https:// to the link if it does not contain https:// or http:// already. This is helpful to make a link openable when using the [url_launcher](https://pub.dev/packages/url_launcher) package for example.
   
   
-- ### Extensions on `DateTime`:
-    - #### [copyWith(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/copyWith.html)
-      Returns a copy with the overridden (given) attributes.
-    - #### [format(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/format.html)
-      Returns a String which represents the date formatted by the given pattern.
-    - #### [isToday](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isToday.html)
-      Whether the date is today.
-    - #### [isYesterday](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isYesterday.html)
-      Whether the date is yesterday.
-    - #### [isTomorrow](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isTomorrow.html)
-      Whether the date is tomorrow.
-    - #### [isFutureDay](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isFutureDay.html)
-      Whether the date is a day in the future.
-    - #### [isSameDay(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/isSameDay.html)
-      Whether the date is on the same day (regardless of the time) as the given date.
-    - #### [timeIsZero](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/timeIsZero.html)
-      Whether the time of the date is zero/empty.
-    - #### [copyWithEmptyTime()](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeExtensions/copyWithEmptyTime.html)
-      Returns a copy with time set to zero/empty.
-  
-  
 - ### Extensions on `BuildContext` (Adaptive helpers):
-    - #### [mediaQuery](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/mediaQuery.html)
+    - #### [mediaQuery](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/mediaQuery.html)
       The `MediaQueryData` from the closest instance of this class that encloses the given context.
-    - #### [screenWidth](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenWidth.html)
+    - #### [screenWidth](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenWidth.html)
       The horizontal extent of the screen size.
-    - #### [screenHeight](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenHeight.html)
+    - #### [screenHeight](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenHeight.html)
       The vertical extent of the screen size.
-    - #### [screenIsLandscape](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenIsLandscape.html)
+    - #### [screenIsLandscape](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenIsLandscape.html)
       Whether the device is in landscape mode.
-    - #### [screenIsPortrait](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenIsPortrait.html)
+    - #### [screenIsPortrait](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenIsPortrait.html)
       Whether the device is in portrait mode.
-    - #### [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/formFactor.html)
+    - #### [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/formFactor.html)
       Returns the correct [FormFactor](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactor-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html).
-    - #### [screenSize](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/screenSize.html)
+    - #### [screenSize](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenSize.html)
       Returns the correct [ScreenSize](https://pub.dev/documentation/fleasy/latest/fleasy/ScreenSize-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html). 
-    - #### [byFormFactor<T>(...)](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/byFormFactor.html)
+    - #### [byFormFactor<T>(...)](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/byFormFactor.html)
       Returns the given onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/formFactor.html).
       Example:
       ```dart
-      int width = context.byFormFactor<int>(onHandset: 10, onTablet: 25, onDesktop: 50);
+      int columns = context.byFormFactor<int>(onHandset: 1, onTablet: 2, onDesktop: 4);
       ```   
+
+- ### Extensions on `BuildContext` (Theme helpers):
+    - #### [theme](https://pub.dev/documentation/fleasy/latest/fleasy/ThemeHelpers/theme.html)
+      The data from the closest Theme instance that encloses the given context.
+    - #### [isDarkTheme](https://pub.dev/documentation/fleasy/latest/fleasy/ThemeHelpers/isDarkTheme.html)
+      Whether the theme brightness is dark.
+    - #### [isLightTheme](https://pub.dev/documentation/fleasy/latest/fleasy/ThemeHelpers/isLightTheme.html)
+      Whether the theme brightness is light.
  
 - ### Extensions on `BuildContext` (Navigation helpers):
-    - #### [pushPage(...)](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/pushPage.html)
+    - #### [pushPage(...)](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationHelpers/pushPage.html)
       Push the given page onto the navigator.
-    - #### [pushRoute(...)](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/pushRoute.html)
+    - #### [pushRoute(...)](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationHelpers/pushRoute.html)
       Push the given route onto the navigator.
-    - #### [popPage(...)](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/popPage.html)
+    - #### [popPage(...)](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationHelpers/popPage.html)
       Pop the top-most route off the navigator and dismiss the keyboard.
-    - #### [canPopPage()](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/canPopPage.html)
+    - #### [canPopPage()](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationHelpers/canPopPage.html)
       Whether the navigator can be popped.
-    - #### [dismissKeyboard()](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationContextExtensions/dismissKeyboard.html)
+    - #### [dismissKeyboard()](https://pub.dev/documentation/fleasy/latest/fleasy/NavigationHelpers/dismissKeyboard.html)
       Dismisses the keyboard.
       
 - ### Extensions on `BuildContext` (Flashbars):
     The extensions use the awesome [flash](https://pub.dev/packages/flash) package:
-    - #### [showSuccessFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showSuccessFlashbar.html)
+    - #### [showSuccessFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarHelpers/showSuccessFlashbar.html)
       Shows a success flashbar/toast with a customizable text.
-    - #### [showInfoFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showInfoFlashbar.html)
+    - #### [showInfoFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarHelpers/showInfoFlashbar.html)
       Shows an info flashbar/toast with a customizable text.
-    - #### [showErrorFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showErrorFlashbar.html)
+    - #### [showErrorFlashbar(...)](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarHelpers/showErrorFlashbar.html)
       Shows an error flashbar/toast with a customizable text (optional).
-    - #### [showNoConnectionFlashbar()](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarContextExtensions/showNoConnectionFlashbar.html)
+    - #### [showNoConnectionFlashbar()](https://pub.dev/documentation/fleasy/latest/fleasy/FlashbarHelpers/showNoConnectionFlashbar.html)
       Shows a no connection flashbar/toast with a customizable text (optional).
       
   
 - ### Extensions on `List?`:
-    - #### [isNotBlank](https://pub.dev/documentation/fleasy/latest/fleasy/NullableListExtensions/isNotBlank.html)
+    - #### [isNotBlank](https://pub.dev/documentation/fleasy/latest/fleasy/ListBlankHelpers/isNotBlank.html)
       Whether the list is not empty nor null.
-    - #### [isBlank](https://pub.dev/documentation/fleasy/latest/fleasy/NullableListExtensions/isBlank.html)
+    - #### [isBlank](https://pub.dev/documentation/fleasy/latest/fleasy/ListBlankHelpers/isBlank.html)
       Whether the list is empty or null.
   
   
 - ### Extensions on `List`:
-    - #### [find(...)](https://pub.dev/documentation/fleasy/latest/fleasy/ListExtensions/find.html)
+    - #### [find(...)](https://pub.dev/documentation/fleasy/latest/fleasy/ListFindHelper/find.html)
       Returns either the first element of the list which satisfies the provided test or null if there is none.
 
+
+- ### Extensions on `DateTime`:
+    - #### [copyWith(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/copyWith.html)
+      Returns a copy with the overridden (given) attributes.
+    - #### [format(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/format.html)
+      Returns a String which represents the date formatted by the given pattern.
+    - #### [isToday](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/isToday.html)
+      Whether the date is today.
+    - #### [isYesterday](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/isYesterday.html)
+      Whether the date is yesterday.
+    - #### [isTomorrow](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/isTomorrow.html)
+      Whether the date is tomorrow.
+    - #### [isFutureDay](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/isFutureDay.html)
+      Whether the date is a day in the future.
+    - #### [isSameDay(...)](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/isSameDay.html)
+      Whether the date is on the same day (regardless of the time) as the given date.
+    - #### [timeIsZero](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/timeIsZero.html)
+      Whether the time of the date is zero/empty.
+    - #### [copyWithEmptyTime()](https://pub.dev/documentation/fleasy/latest/fleasy/DateTimeHelpers/copyWithEmptyTime.html)
+      Returns a copy with time set to zero/empty.
 
 - ### `Date` helper class: 
     - #### [today()](https://pub.dev/documentation/fleasy/latest/fleasy/Date/today.html)
