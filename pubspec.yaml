@@ -13,10 +13,10 @@ dependencies:
 
   intl: ^0.17.0
   universal_platform: ^1.0.0+1
-  font_awesome_flutter: ^9.1.0
-  flash: ^2.0.3
+  font_awesome_flutter: ^9.2.0
+  flash: ^2.0.3+1
   flutter_lints: ^1.0.4
-  dart_code_metrics: ^4.4.0
+  dart_code_metrics: ^4.8.1
 
 dev_dependencies:
   test: ^1.17.9
