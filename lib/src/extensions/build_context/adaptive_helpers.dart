@@ -14,7 +14,7 @@ class FormFactorBreakpoints {
 /// Enum which defines the possible form factors.
 enum FormFactor { desktop, tablet, handset, watch }
 
-extension FormFactorExtensions on FormFactor {
+extension FormFactorHelpers on FormFactor {
   /// Whether `context.formFactor` is equal to `FormFactor.desktop`.
   bool get isDesktop => this == FormFactor.desktop;
 
@@ -31,7 +31,7 @@ extension FormFactorExtensions on FormFactor {
 /// Alternative to [FormFactor], which is more abstract and defines it in terms of small to large.
 enum ScreenSize { small, normal, large, extraLarge }
 
-extension ScreenSizeExtensions on ScreenSize {
+extension ScreenSizeHelpers on ScreenSize {
   /// Whether `context.screenSize` is equal to `ScreenSize.small`.
   bool get isSmall => this == ScreenSize.small;
 
@@ -45,7 +45,7 @@ extension ScreenSizeExtensions on ScreenSize {
   bool get isExtraLarge => this == ScreenSize.extraLarge;
 }
 
-extension BuildContextExtensions on BuildContext {
+extension AdaptiveHelpers on BuildContext {
   /// The [MediaQueryData] from the closest instance of this class that encloses the given context.
   ///
   /// You can use this getter to query the size and orientation of the screen, as well as other media parameters.
@@ -96,7 +96,7 @@ extension BuildContextExtensions on BuildContext {
   ///
   /// Example:
   /// ```dart
-  /// int width = context.byFormFactor<int>(onHandset: 10, onTablet: 25, onDesktop: 50);
+  /// int columns = context.byFormFactor<int>(onHandset: 1, onTablet: 2, onDesktop: 4);
   /// ```
   T byFormFactor<T>({
     T? onWatch,

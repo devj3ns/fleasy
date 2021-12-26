@@ -1,4 +1,4 @@
-extension NullableListBankChecksExtensions on List? {
+extension ListBlankHelpers on List? {
   /// Whether the list is not empty nor null.
   bool get isNotBlank => this != null && this!.isNotEmpty;
 

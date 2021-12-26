@@ -1,4 +1,4 @@
-extension StringBlankExtensions on String {
+extension StringBlankHelpers on String {
   /// Whether the string contains characters except of whitespace characters.
   bool get isNotBlank => trim().isNotEmpty;
 
@@ -6,7 +6,7 @@ extension StringBlankExtensions on String {
   bool get isBlank => trim().isEmpty;
 }
 
-extension NullableStringBlankExtensions on String? {
+extension NullableStringBlankHelpers on String? {
   /// Whether the string is not null and contains characters except of whitespace characters.
   bool get isNotBlank => this?.trim().isNotEmpty ?? false;
 

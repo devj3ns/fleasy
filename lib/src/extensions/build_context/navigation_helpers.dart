@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension NavigationContextExtensions on BuildContext {
+extension NavigationHelpers on BuildContext {
   /// Push the given page onto the navigator.
   void pushPage(
     Widget page, {

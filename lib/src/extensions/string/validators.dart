@@ -12,7 +12,7 @@ final RegExp _mediumPasswordRegExp =
 final RegExp _strongPasswordRegExp =
     RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])\S{8,}$');
 
-extension StringValidatorsExtensions on String {
+extension StringValidators on String {
   /// Whether the string is a valid email.
   bool get isEmail => _emailRegExp.hasMatch(toLowerCase());
 
@@ -47,7 +47,7 @@ extension StringValidatorsExtensions on String {
   /// - at least 1 special character
   bool get isStrongPassword => _strongPasswordRegExp.hasMatch(this);
 
-  /// Adds https:// to the link if it does not contain https:// or http:// already..
+  /// Adds https:// to the link if it does not contain https:// or http:// already.
   ///
   /// This is helpful to make a link openable when using the [url_launcher](https://pub.dev/packages/url_launcher) package for example.
   String addHttps() {

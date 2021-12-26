@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../helper_classes/helper_classes.dart';
 
-extension FlashbarContextExtensions on BuildContext {
+extension FlashbarHelpers on BuildContext {
   Future _showFlashbar(
     String message, {
     Color? iconColor,

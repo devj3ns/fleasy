@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-extension DateTimeExtensions on DateTime {
+extension DateTimeHelpers on DateTime {
   /// Returns a copy with the overridden (given) attributes.
   DateTime copyWith({
     int? year,
