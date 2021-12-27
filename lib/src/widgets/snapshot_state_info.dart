@@ -1,7 +1,8 @@
-import 'package:fleasy/fleasy.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../fleasy.dart';
 
 /// Widget used by the [EasyFutureBuilder] and [EasyStreamBuilder] to show
 /// that the [Future]/[Stream]'s data is empty or has an error.

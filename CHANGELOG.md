@@ -1,6 +1,9 @@
+# 0.7.1
+- **Fix:** Add `prefer_relative_imports` lint rule
+
 # 0.7.0
-- Add theme helpers/extensions on `BuildContext`
-- Add `prefer_relative_imports` lint rule
+- **Add** theme helpers/extensions on `BuildContext`
+- **Add** `prefer_relative_imports` lint rule
 - **Breaking:** remove extensions on `List<DateTime>`
 
 # 0.6.0
