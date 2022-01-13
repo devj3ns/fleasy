@@ -18,6 +18,12 @@ extension FlashbarHelpers on BuildContext {
         return Flash<Flash>.bar(
           controller: controller,
           backgroundColor: Theme.of(this).dialogBackgroundColor,
+          boxShadows: const [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 25,
+            )
+          ],
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           margin: const EdgeInsets.all(Insets.l),
           child: FlashBar(
