@@ -1,3 +1,6 @@
+# 0.8.0
+- **Add:** shadow to flasbars
+
 # 0.7.1
 - **Fix:** Add `prefer_relative_imports` lint rule
 
