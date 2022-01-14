@@ -41,7 +41,7 @@ dart_code_metrics:
     - prefer-conditional-expressions
     #- prefer-match-file-name
     - prefer-const-border-radius
-    - prefer-extracting-callbacks
+    #- prefer-extracting-callbacks
     - binary-expression-operand-order
     - double-literal-format
 
