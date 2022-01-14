@@ -2,31 +2,31 @@ import 'package:flutter/material.dart';
 
 extension NavigationHelpers on BuildContext {
   /// Push the given page onto the navigator.
-  void pushPage(
+  Future<void> pushPage<T extends Object?>(
     Widget page, {
     bool dismissKeyboard = true,
     bool avoidDuplicatePage = true,
-  }) {
-    pushRoute(
-      MaterialPageRoute<Widget>(builder: (context) => page),
+  }) async {
+    await pushRoute<T>(
+      MaterialPageRoute<T>(builder: (context) => page),
       dismissKeyboard: dismissKeyboard,
       avoidDuplicateRoute: avoidDuplicatePage,
     );
   }
 
   /// Push the given route onto the navigator.
-  void pushRoute(
-    Route route, {
+  Future<void> pushRoute<T extends Object?>(
+    Route<T> route, {
     bool dismissKeyboard = true,
     bool avoidDuplicateRoute = true,
-  }) {
+  }) async {
     if (dismissKeyboard) this.dismissKeyboard();
 
     if (avoidDuplicateRoute && route.isCurrent) {
       debugPrint(
           'INFO: New route is not pushed because it is already the current route!');
     } else {
-      Navigator.of(this).push<void>(route);
+      await Navigator.of(this).push<T>(route);
     }
   }
 
