@@ -1,3 +1,7 @@
+# 0.9.0
+- **Improve** navigation helpers
+- **Remove:** `prefer-extracting-callbacks` lint rule
+
 # 0.8.0
 - **Add:** shadow to flasbars
 
