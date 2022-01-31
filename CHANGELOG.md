@@ -1,3 +1,6 @@
+# 0.10.0
+- **Add** `Gap` widget
+
 # 0.9.0
 - **Improve** navigation helpers
 - **Remove:** `prefer-extracting-callbacks` lint rule
