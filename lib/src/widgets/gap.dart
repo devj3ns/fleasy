@@ -9,9 +9,6 @@ import 'package:flutter/material.dart';
 /// Gap.w4() = SizedBox(width: 4.0)
 /// Gap.h8() = SizedBox(height: 8.0)
 class Gap extends StatelessWidget {
-  const Gap._({Key? key, required this.width, required this.height})
-      : super(key: key);
-
   /// A gap with a width of 2
   const Gap.w2({Key? key})
       : width = 2,
