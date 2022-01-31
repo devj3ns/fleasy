@@ -196,6 +196,8 @@ All features with links to their page in the documentation:
   
     
 - ### Flutter Widgets: 
+    - #### [Gap](https://pub.dev/documentation/fleasy/latest/fleasy/Gap-class.html)
+      A wrapper around `SizedBox` for making consistent gaps. Example: Instead of `SizedBox(width: 4.0)` you can just write `Gap.w4()`.
     - #### [EasyFutureBuilder<T>](https://pub.dev/documentation/fleasy/latest/fleasy/EasyFutureBuilder-class.html)
       A wrapper around `FutureBuilder` which makes it easy to display the various states of fetching data from the given `Future`. See [example](https://github.com/devj3ns/fleasy/blob/main/example/lib/main.dart).
     - #### [EasyStreamBuilder<T>](https://pub.dev/documentation/fleasy/latest/fleasy/EasyStreamBuilder-class.html)
