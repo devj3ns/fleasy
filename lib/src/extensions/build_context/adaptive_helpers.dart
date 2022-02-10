@@ -1,48 +1,29 @@
 import 'package:flutter/material.dart';
 
-/// Class which defines the form factor breakpoints:
-///
-/// Desktop = 900
-/// Tablet = 600
-/// Handset = 300
-class FormFactorBreakpoints {
+/// Class which defines the screen width breakpoints
+class ScreenWidthBreakpoints {
+  /// Devices with a width greater than 900.
   static double desktop = 900;
+
+  /// Devices with a width greater than 600.
   static double tablet = 600;
-  static double handset = 300;
+
+  /// Devices with a width greater than 300.
+  static double mobile = 300;
 }
 
-/// Enum which defines the possible form factors.
-enum FormFactor { desktop, tablet, handset, watch }
+/// The possible form factors a device can have.
+enum FormFactor { desktop, tablet, mobile }
 
 extension FormFactorHelpers on FormFactor {
-  /// Whether `context.formFactor` is equal to `FormFactor.desktop`.
+  /// Whether `context.formFactor()` is equal to `FormFactor.desktop`.
   bool get isDesktop => this == FormFactor.desktop;
 
-  /// Whether `context.formFactor` is equal to `FormFactor.tablet`.
+  /// Whether `context.formFactor()` is equal to `FormFactor.tablet`.
   bool get isTablet => this == FormFactor.tablet;
 
-  /// Whether `context.formFactor` is equal to `FormFactor.handset`.
-  bool get isHandset => this == FormFactor.handset;
-
-  /// Whether `context.formFactor` is equal to `FormFactor.watch`.
-  bool get isWatch => this == FormFactor.watch;
-}
-
-/// Alternative to [FormFactor], which is more abstract and defines it in terms of small to large.
-enum ScreenSize { small, normal, large, extraLarge }
-
-extension ScreenSizeHelpers on ScreenSize {
-  /// Whether `context.screenSize` is equal to `ScreenSize.small`.
-  bool get isSmall => this == ScreenSize.small;
-
-  /// Whether `context.screenSize` is equal to `ScreenSize.normal`.
-  bool get isNormal => this == ScreenSize.normal;
-
-  /// Whether `context.screenSize` is equal to `ScreenSize.large`.
-  bool get isLarge => this == ScreenSize.large;
-
-  /// Whether `context.screenSize` is equal to `ScreenSize.extraLarge`.
-  bool get isExtraLarge => this == ScreenSize.extraLarge;
+  /// Whether `context.formFactor()` is equal to `FormFactor.mobile`.
+  bool get isMobile => this == FormFactor.mobile;
 }
 
 extension AdaptiveHelpers on BuildContext {
@@ -64,52 +45,49 @@ extension AdaptiveHelpers on BuildContext {
   /// Whether the device is in portrait mode.
   bool get screenIsPortrait => mediaQuery.orientation == Orientation.portrait;
 
-  /// Returns the correct [FormFactor] based on the [FormFactorBreakpoints].
-  FormFactor get formFactor {
-    // Use shortestScreenSide to detect device type regardless of orientation
-    final deviceWidth = mediaQuery.size.shortestSide;
+  /// Returns the correct [FormFactor] based on the [ScreenWidthBreakpoints].
+  ///
+  /// If [followDeviceOrientation] is true (default) the devices screen width
+  /// is compared with the [ScreenWidthBreakpoints]. This means the [FormFactor]
+  /// changes when the device orientation changes.
+  ///
+  ///
+  /// If [followDeviceOrientation] is false the devices shortest side
+  /// is compared with the [ScreenWidthBreakpoints]. This means the [FormFactor]
+  /// does not change when the device orientation changes.
+  FormFactor formFactor({bool followDeviceOrientation = true}) {
+    final width = followDeviceOrientation
+        ? mediaQuery.size.width
+        : mediaQuery.size.shortestSide;
 
-    return deviceWidth > FormFactorBreakpoints.desktop
+    return width > ScreenWidthBreakpoints.desktop
         ? FormFactor.desktop
-        : deviceWidth > FormFactorBreakpoints.tablet
+        : width > ScreenWidthBreakpoints.tablet
             ? FormFactor.tablet
-            : deviceWidth > FormFactorBreakpoints.handset
-                ? FormFactor.handset
-                : FormFactor.watch;
+            : FormFactor.mobile;
   }
 
-  /// Returns the correct [ScreenSize] based on the [FormFactorBreakpoints].
-  ScreenSize get screenSize {
-    // Use .shortestScreenSide to detect device type regardless of orientation
-    final deviceWidth = mediaQuery.size.shortestSide;
-
-    return deviceWidth > FormFactorBreakpoints.desktop
-        ? ScreenSize.extraLarge
-        : deviceWidth > FormFactorBreakpoints.tablet
-            ? ScreenSize.large
-            : deviceWidth > FormFactorBreakpoints.handset
-                ? ScreenSize.normal
-                : ScreenSize.small;
-  }
-
-  /// Returns the given onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor].
+  /// Returns either onMobile, onTablet or onDesktop depending on the current [formFactor].
+  ///
+  /// For notes on [followDeviceOrientation] see [formFactor].
   ///
   /// Example:
   /// ```dart
-  /// int columns = context.byFormFactor<int>(onHandset: 1, onTablet: 2, onDesktop: 4);
+  /// int columns = context.byFormFactor<int>(onMobile: 1, onTablet: 2, onDesktop: 4);
   /// ```
   T byFormFactor<T>({
-    T? onWatch,
-    required T onHandset,
+    required T onMobile,
     required T onTablet,
     required T onDesktop,
+    bool followDeviceOrientation = true,
   }) {
-    return formFactor.isWatch
-        ? onWatch ?? onHandset
-        : formFactor.isHandset
-            ? onHandset
-            : formFactor.isTablet
-                ? onTablet
-                : onDesktop;
+    final formFactor =
+        this.formFactor(followDeviceOrientation: followDeviceOrientation);
+
+    return formFactor.isMobile
+        ? onMobile
+        : formFactor.isTablet
+            ? onTablet
+            : onDesktop;
   }
 }

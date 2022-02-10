@@ -66,15 +66,13 @@ All features with links to their page in the documentation:
       Whether the device is in landscape mode.
     - #### [screenIsPortrait](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenIsPortrait.html)
       Whether the device is in portrait mode.
-    - #### [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/formFactor.html)
-      Returns the correct [FormFactor](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactor-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html).
-    - #### [screenSize](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenSize.html)
-      Returns the correct [ScreenSize](https://pub.dev/documentation/fleasy/latest/fleasy/ScreenSize-class.html) based on the [FormFactorBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactorBreakpoints-class.html). 
+    - #### [formFactor()](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/formFactor.html)
+      Returns the correct [FormFactor](https://pub.dev/documentation/fleasy/latest/fleasy/FormFactor-class.html) based on the [ScreenWidthBreakpoints](https://pub.dev/documentation/fleasy/latest/fleasy/ScreenWidthBreakpoints-class.html).
     - #### [byFormFactor<T>(...)](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/byFormFactor.html)
-      Returns the given onWatch, onHandset, onTablet or onDesktop depending on the current [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/formFactor.html).
+      Returns either onMobile, onTablet or onDesktop depending on the current [formFactor](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/formFactor.html).
       Example:
       ```dart
-      int columns = context.byFormFactor<int>(onHandset: 1, onTablet: 2, onDesktop: 4);
+      int columns = context.byFormFactor<int>(onMobile: 1, onTablet: 2, onDesktop: 4);
       ```   
 
 - ### Extensions on `BuildContext` (Theme helpers):

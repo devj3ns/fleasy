@@ -1,6 +1,12 @@
 # 0.11.0
-- **Remove** `DeviceType` class (Use [universal_platform](https://pub.dev/packages/universal_platform) instead)
 - **Add** `Gap.w32()` and `Gap.h32()`
+- **Remove** `DeviceType` class (Use [universal_platform](https://pub.dev/packages/universal_platform) instead)
+- **Revise** adaptive helpers:
+  - Remove `context.screenSize` (use `context.formFactor()` instead)
+  - Make `context.formFactor` a function with the argument `followDeviceOrientation`
+  - Rename `FormFactor.handset` to `FormFactor.mobile`
+  - Remove `FormFactor.watch`
+  - Rename `FormFactorBreakpoints` to `ScreenWidthBreakpoints`
 
 # 0.10.0
 - **Add** `Gap` widget
