@@ -1,5 +1,6 @@
 # 0.11.0
 - **Remove** `DeviceType` class (Use [universal_platform](https://pub.dev/packages/universal_platform) instead)
+- **Add** `Gap.w32()` and `Gap.h32()`
 
 # 0.10.0
 - **Add** `Gap` widget

@@ -39,6 +39,12 @@ class Gap extends StatelessWidget {
         height = 0,
         super(key: key);
 
+  /// A gap with a width of 32
+  const Gap.w32({Key? key})
+      : width = 32,
+        height = 0,
+        super(key: key);
+
   /// A gap with a height of 2
   const Gap.h2({Key? key})
       : width = 0,
@@ -67,6 +73,12 @@ class Gap extends StatelessWidget {
   const Gap.h16({Key? key})
       : width = 0,
         height = 16,
+        super(key: key);
+
+  /// A gap with a height of 32
+  const Gap.h32({Key? key})
+      : width = 0,
+        height = 32,
         super(key: key);
 
   final double width;
