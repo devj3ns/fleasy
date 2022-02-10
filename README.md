@@ -25,7 +25,6 @@ The goal is that by using this package you have to write less (repeating) and mo
 - [Extensions on `List`](#extensions-on-list-1)
 - [Extensions on `DateTime`](#extensions-on-datetime)
 - [`Date` helper class](#date-helper-class)
-- [`DeviceType` helper class](#devicetype-helper-class)
 - [`Insets` helper class](#insets-helper-class)
 - [Flutter Widgets](#flutter-widgets)
 - [Analysis Options](#analysis-options)
@@ -149,31 +148,6 @@ All features with links to their page in the documentation:
       The `DateTime` of tomorrow (without time (time set to zero)).
     - #### [yesterday()](https://pub.dev/documentation/fleasy/latest/fleasy/Date/yesterday.html)
       The `DateTime` of yesterday (without time (time set to zero)).
-  
-  
-- ### `DeviceType` helper class: 
-    With the help of this class you can easily find out on which platform the app is currently running
-    and most importantly: in a web-safe way! It uses the awesome [universal_platform](https://pub.dev/packages/universal_platform) package.
-    - #### [isIOS](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isIOS.html)
-      Whether the app is running on iOS.
-    - #### [isAndroid](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isAndroid.html)
-      Whether the app is running on android.
-    - #### [isMacOS](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isMacOS.html)
-      Whether the app is running on macOS.
-    - #### [isLinux](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isLinux.html)
-      Whether the app is running on linux.
-    - #### [isWindows](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isWindows.html)
-      Whether the app is running on windows.
-    - #### [isWeb](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isWeb.html)
-      Whether the app is running on the web.
-    - #### [isDesktop](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isDesktop.html)
-      Whether the app is running on desktop (windows, macOS or linux).
-    - #### [isMobile](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isMobile.html)
-      Whether the app is running on mobile (android or iOS).
-    - #### [isDesktopOrWeb](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isDesktopOrWeb.html)
-      Whether the app is running on desktop or web.
-    - #### [isMobileOrWeb](https://pub.dev/documentation/fleasy/latest/fleasy/DeviceType/isMobileOrWeb.html)
-      Whether the app is running on mobile or web.
  
 
 - ### `Insets` helper class: 
