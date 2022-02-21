@@ -1,3 +1,6 @@
+# 0.12.0
+- **Add** more [dart_code_metrics](https://pub.dev/packages/dart_code_metrics) rules
+
 # 0.11.0
 - **Add** `Gap.w32()` and `Gap.h32()`
 - **Remove** `DeviceType` class (Use [universal_platform](https://pub.dev/packages/universal_platform) instead)
