@@ -21,12 +21,23 @@ dart_code_metrics:
   exclude:
     - example/**
   rules:
+    - avoid-nested-conditional-expressions:
+        acceptable-level: 3
+    - avoid-dynamic
+    - avoid-global-state
+    - avoid-missing-enum-constant-in-map
     - avoid-unused-parameters
     - avoid-wrapping-in-padding
     - avoid-returning-widgets
     - avoid-unnecessary-setstate
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unrelated-type-assertions
     - avoid-unused-parameters
+    - avoid-border-all
+    - avoid-throw-in-catch-block
     - always-remove-listener
+    - binary-expression-operand-order
     - double-literal-format
     - newline-before-return
     - no-boolean-literal-compare
@@ -35,8 +46,9 @@ dart_code_metrics:
     - no-empty-block
     - prefer-conditional-expressions
     - prefer-const-border-radius
-    - binary-expression-operand-order
-    - double-literal-format
+    - prefer-async-await
+    - prefer-first
+    - prefer-last
 
 linter:
   rules:
