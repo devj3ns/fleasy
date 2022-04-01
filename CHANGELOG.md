@@ -1,3 +1,7 @@
+# 0.12.1
+- Update dependencies
+- Make ScreenWidthBreakpoints constants
+
 # 0.12.0
 - **Add** more [dart_code_metrics](https://pub.dev/packages/dart_code_metrics) rules
 
