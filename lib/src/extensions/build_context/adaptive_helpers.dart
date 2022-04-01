@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 /// Class which defines the screen width breakpoints
 class ScreenWidthBreakpoints {
   /// Devices with a width greater than 900.
-  static double desktop = 900;
+  static const double desktop = 900;
 
   /// Devices with a width greater than 600.
-  static double tablet = 600;
+  static const double tablet = 600;
 
   /// Devices with a width greater than 300.
-  static double mobile = 300;
+  static const double mobile = 300;
 }
 
 /// The possible form factors a device can have.
