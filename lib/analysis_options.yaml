@@ -14,12 +14,16 @@ analyzer:
     implicit-dynamic: false
   exclude:
     - example/**
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
   plugins:
     - dart_code_metrics
 
 dart_code_metrics:
   exclude:
     - example/**
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
   rules:
     - avoid-nested-conditional-expressions:
         acceptable-level: 3
