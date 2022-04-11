@@ -1,3 +1,6 @@
+# 0.13.0
+- Disable analysis/metrics in generated files [#8](https://github.com/devj3ns/fleasy/pull/8)
+
 # 0.12.1
 - Update dependencies
 - Make ScreenWidthBreakpoints constants
