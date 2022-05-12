@@ -39,6 +39,7 @@ dart_code_metrics:
     - avoid-unrelated-type-assertions
     - avoid-unused-parameters
     - avoid-border-all
+    - avoid-non-ascii-symbols
     - avoid-throw-in-catch-block
     - always-remove-listener
     - binary-expression-operand-order
@@ -53,6 +54,7 @@ dart_code_metrics:
     - prefer-async-await
     - prefer-first
     - prefer-last
+    - prefer-immediate-return
 
 linter:
   rules:
