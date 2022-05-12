@@ -14,8 +14,8 @@ dependencies:
   intl: ^0.17.0
   font_awesome_flutter: ^10.1.0
   flash: ^2.0.3+2
-  flutter_lints: ^1.0.4
-  dart_code_metrics: ^4.13.0
+  flutter_lints: ^2.0.1
+  dart_code_metrics: ^4.15.0
 
 dev_dependencies:
   test: ^1.20.1
