@@ -27,7 +27,7 @@ class EasyStreamBuilder<T> extends StatelessWidget {
   ///
   /// See the [documentation page](https://pub.dev/documentation/fleasy/latest/fleasy/EasyStreamBuilder-class.html) for more details.
   const EasyStreamBuilder({
-    Key? key,
+    super.key,
     required this.stream,
     required this.dataBuilder,
     this.errorText = 'Oops, something went wrong.',
@@ -37,7 +37,7 @@ class EasyStreamBuilder<T> extends StatelessWidget {
     this.textStyle,
     this.iconStyle,
     this.loadingIndicator = const CircularProgressIndicator(),
-  }) : super(key: key);
+  });
 
   /// The asynchronous computation to which this builder is currently connected.
   final Stream<T> stream;

@@ -27,7 +27,7 @@ class EasyFutureBuilder<T> extends StatelessWidget {
   ///
   /// See the [documentation page](https://pub.dev/documentation/fleasy/latest/fleasy/EasyFutureBuilder-class.html) for more details.
   const EasyFutureBuilder({
-    Key? key,
+    super.key,
     required this.future,
     required this.dataBuilder,
     this.errorText = 'Oops, something went wrong.',
@@ -37,7 +37,7 @@ class EasyFutureBuilder<T> extends StatelessWidget {
     this.textStyle,
     this.iconStyle,
     this.loadingIndicator = const CircularProgressIndicator(),
-  }) : super(key: key);
+  });
 
   /// The asynchronous computation to which this builder is currently connected.
   final Future<T> future;
