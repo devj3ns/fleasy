@@ -60,6 +60,7 @@ linter:
     - avoid_empty_else
     - avoid_relative_lib_imports
     - avoid_returning_null
+    - avoid_returning_this
     - avoid_types_as_parameter_names
     - avoid_unused_constructor_parameters
     - await_only_futures
@@ -86,6 +87,8 @@ linter:
     - prefer_single_quotes
     - prefer_typing_uninitialized_variables
     - prefer_relative_imports
+    - prefer_mixin
+    - sized_box_shrink_expand
     - sort_constructors_first
     - test_types_in_equals
     - throw_in_finally
@@ -93,6 +96,15 @@ linter:
     - unnecessary_lambdas
     - unnecessary_null_aware_assignments
     - unnecessary_statements
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
     - unrelated_type_equality_checks
+    - use_enums
+    - use_colored_box
+    - use_decorated_box
     - use_super_parameters
+    - use_if_null_to_convert_nulls_to_bools
+    - use_is_even_rather_than_modulo
+    - use_string_buffers
+    - use_to_and_as_if_applicable
     - valid_regexps
