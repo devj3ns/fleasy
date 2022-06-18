@@ -89,7 +89,7 @@ class EasyFutureBuilder<T> extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           if (kDebugMode) {
-            throw (snapshot.error!);
+            throw snapshot.error!;
           }
 
           return SnapshotStateInfo(
@@ -106,7 +106,7 @@ class EasyFutureBuilder<T> extends StatelessWidget {
             return dataBuilder(context, snapshot.data as T);
           } else {
             if (kDebugMode) {
-              throw (snapshot.error!);
+              throw snapshot.error!;
             }
 
             return SnapshotStateInfo(
