@@ -1,3 +1,23 @@
+# 0.14.0
+- Bump dart-sdk to `>=2.17.1`
+- Bump dart_code_metrics to `^4.15.2`
+- Bump flutter_lints to `^2.0.1`
+- New rule and lints:
+  - [prefer-immediate-return](https://dartcodemetrics.dev/docs/rules/common/prefer-immediate-return)
+  - [use_super_parameters](https://dart-lang.github.io/linter/lints/use_super_parameters.html)
+  - [avoid_returning_this](https://dart-lang.github.io/linter/lints/avoid_returning_this.html)
+  - [prefer_mixin](https://dart-lang.github.io/linter/lints/prefer_mixin.html)
+  - [sized_box_shrink_expand](https://dart-lang.github.io/linter/lints/sized_box_shrink_expand.html)
+  - [unnecessary_parenthesis](https://dart-lang.github.io/linter/lints/unnecessary_parenthesis.html)
+  - [unnecessary_raw_strings](https://dart-lang.github.io/linter/lints/unnecessary_raw_strings.html)
+  - [use_enums](https://dart-lang.github.io/linter/lints/use_enums.html)
+  - [use_colored_box](https://dart-lang.github.io/linter/lints/use_colored_box.html)
+  - [use_decorated_box](https://dart-lang.github.io/linter/lints/use_decorated_box.html)
+  - [use_if_null_to_convert_nulls_to_bools](https://dart-lang.github.io/linter/lints/use_if_null_to_convert_nulls_to_bools.html)
+  - [use_is_even_rather_than_modulo](https://dart-lang.github.io/linter/lints/use_is_even_rather_than_modulo.html)
+  - [use_string_buffers](https://dart-lang.github.io/linter/lints/use_string_buffers.html)
+  - [use_to_and_as_if_applicable](https://dart-lang.github.io/linter/lints/use_to_and_as_if_applicable.html)
+
 # 0.13.0
 - Disable analysis/metrics in generated files [#8](https://github.com/devj3ns/fleasy/pull/8)
 

@@ -1,6 +1,6 @@
 name: fleasy
 description: Useful and easy to use extensions, helper classes and widgets to create Flutter apps easier.
-version: 0.13.0
+version: 0.14.0
 repository: https://github.com/devj3ns/fleasy
 issue_tracker: https://github.com/devj3ns/fleasy/issues
 
@@ -15,7 +15,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   flash: ^2.0.3+2
   flutter_lints: ^2.0.1
-  dart_code_metrics: ^4.15.2 # Does not work with dart 2.17.0, see https://github.com/dart-lang/sdk/issues/48682
+  dart_code_metrics: ^4.15.2
 
 dev_dependencies:
   test: ^1.20.1
