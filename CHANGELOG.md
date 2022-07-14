@@ -1,3 +1,6 @@
+# 0.14.1
+- chore: bump `dart_code_metrics` version to ^4.16.0 [#9](https://github.com/devj3ns/fleasy/pull/9)
+
 # 0.14.0
 - Bump dart-sdk to `>=2.17.1`
 - Bump dart_code_metrics to `^4.15.2`
