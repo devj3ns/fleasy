@@ -29,7 +29,7 @@ extension FlashbarHelpers on BuildContext {
           child: FlashBar(
             content: Text(
               message,
-              style: Theme.of(this).textTheme.bodyText2,
+              style: Theme.of(this).textTheme.bodyMedium,
             ),
             icon: Icon(
               icon,
