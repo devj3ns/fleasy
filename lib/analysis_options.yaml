@@ -16,6 +16,7 @@ analyzer:
     - example/**
     - "**/*.g.dart"
     - "**/*.freezed.dart"
+    - '**/*.config.dart'
   plugins:
     - dart_code_metrics
 
