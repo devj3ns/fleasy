@@ -55,6 +55,7 @@ dart_code_metrics:
     - prefer-first
     - prefer-last
     - prefer-immediate-return
+    - use-setstate-synchronously
 
 linter:
   rules:
