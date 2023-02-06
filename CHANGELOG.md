@@ -1,3 +1,9 @@
+# 0.14.2
+- feat: add [use-setstate-synchronously](https://dcm.dev/docs/individuals/rules/flutter/use-setstate-synchronously) DCM rule
+- fix(flashbar): change deprecated `bodyText2` to `bodyMedium`
+- fix: exclude analysis for injectable generated file
+- chore: bump dependencies
+
 # 0.14.1
 - chore: bump `dart_code_metrics` version to ^4.16.0 [#9](https://github.com/devj3ns/fleasy/pull/9)
 
