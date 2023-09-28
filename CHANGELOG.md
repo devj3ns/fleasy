@@ -1,3 +1,6 @@
+# 0.15.1
+- replace deprecated lint rules
+
 # 0.15.0
 - remove [dart_code_metrics](https://pub.dev/packages/dart_code_metrics) because it's paid now
 - migrate to [flash](https://pub.dev/packages/flash) v3
