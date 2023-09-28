@@ -13,30 +13,24 @@ extension FlashbarHelpers on BuildContext {
     return showFlash<Flash>(
       context: this,
       duration: duration,
-      transitionDuration: const Duration(milliseconds: 750),
       builder: (context, controller) {
-        return Flash<Flash>.bar(
+        return FlashBar(
+          content: Text(
+            message,
+            style: Theme.of(this).textTheme.bodyMedium,
+          ),
+          icon: Icon(
+            icon,
+            color: iconColor,
+            size: Theme.of(this).iconTheme.size ?? 25,
+          ),
           controller: controller,
           backgroundColor: Theme.of(this).dialogBackgroundColor,
-          boxShadows: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 25,
-            )
-          ],
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          margin: const EdgeInsets.all(Insets.l),
-          child: FlashBar(
-            content: Text(
-              message,
-              style: Theme.of(this).textTheme.bodyMedium,
-            ),
-            icon: Icon(
-              icon,
-              color: iconColor,
-              size: Theme.of(this).iconTheme.size ?? 25,
-            ),
+          shadowColor: Colors.black,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Insets.l),
           ),
+          margin: const EdgeInsets.all(Insets.l),
         );
       },
     );

@@ -13,7 +13,7 @@ dependencies:
 
   intl: ^0.18.1
   font_awesome_flutter: ^10.5.0
-  flash: ^2.0.5
+  flash: ^3.0.5+1
   flutter_lints: ^2.0.3
 
 dev_dependencies:
