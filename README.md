@@ -182,7 +182,6 @@ All features with links to their page in the documentation:
     ```
    They are based on:
     - [package:flutter_lints](https://pub.dev/packages/flutter_lints) (therefore also [package:lints](https://pub.dev/packages/lints))
-    - my favorite rules from [package:dart_code_metrics](https://pub.dev/packages/dart_code_metrics)
     - my favorite lint rules which are not present in [package:flutter_lints](https://pub.dev/packages/flutter_lints)
       
    For more details, have a look at the `analysis_options.yaml` file [here](https://github.com/devj3ns/fleasy/blob/main/lib/analysis_options.yaml).
