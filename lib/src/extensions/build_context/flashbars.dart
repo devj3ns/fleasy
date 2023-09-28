@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import '../../helper_classes/helper_classes.dart';
 
 extension FlashbarHelpers on BuildContext {
-  Future _showFlashbar(
+  Future<void> _showFlashbar(
     String message, {
     Color? iconColor,
     required IconData icon,
     Duration duration = const Duration(seconds: 3),
   }) {
-    return showFlash<Flash>(
+    return showFlash(
       context: this,
       duration: duration,
       builder: (context, controller) {
@@ -42,7 +42,7 @@ extension FlashbarHelpers on BuildContext {
   /// - dialogBackgroundColor
   /// - textTheme.bodyText2
   /// - iconTheme.size
-  Future showSuccessFlashbar({
+  Future<void> showSuccessFlashbar({
     required String message,
     Duration duration = const Duration(seconds: 3),
   }) {
@@ -60,7 +60,7 @@ extension FlashbarHelpers on BuildContext {
   /// - dialogBackgroundColor
   /// - textTheme.bodyText2
   /// - iconTheme.size
-  Future showInfoFlashbar({
+  Future<void> showInfoFlashbar({
     required String message,
     Duration duration = const Duration(seconds: 3),
   }) {
@@ -78,7 +78,7 @@ extension FlashbarHelpers on BuildContext {
   /// - dialogBackgroundColor
   /// - textTheme.bodyText2
   /// - iconTheme.size
-  Future showErrorFlashbar({
+  Future<void> showErrorFlashbar({
     String message = 'Oops, something went wrong.',
     Duration duration = const Duration(seconds: 3),
   }) {
@@ -96,7 +96,7 @@ extension FlashbarHelpers on BuildContext {
   /// - dialogBackgroundColor
   /// - textTheme.bodyText2
   /// - iconTheme.size
-  Future showNoConnectionFlashbar({
+  Future<void> showNoConnectionFlashbar({
     String message =
         'No internet connection. Please turn on Wi-Fi or cellular data.',
     Duration duration = const Duration(seconds: 3),

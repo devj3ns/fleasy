@@ -1,4 +1,4 @@
-extension ListBlankHelpers on List? {
+extension ListBlankHelpers<T> on List<T>? {
   /// Whether the list is not empty nor null.
   bool get isNotBlank => this != null && this!.isNotEmpty;
 

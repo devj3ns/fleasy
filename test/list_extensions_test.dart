@@ -16,7 +16,7 @@ void main() {
     });
 
     test('returns false on null list.', () {
-      const List? list = null;
+      const List<int>? list = null;
 
       expect(list.isNotBlank, equals(false));
     });
@@ -36,7 +36,7 @@ void main() {
     });
 
     test('returns true on null list.', () {
-      const List? list = null;
+      const List<int>? list = null;
 
       expect(list.isBlank, equals(true));
     });
