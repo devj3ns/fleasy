@@ -11,10 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  intl: ^0.17.0
-  font_awesome_flutter: ^10.3.0
+  intl: ^0.18.1
+  font_awesome_flutter: ^10.5.0
   flash: ^2.0.5
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.3
 
 dev_dependencies:
   test: ^1.22.2
