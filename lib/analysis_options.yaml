@@ -3,7 +3,6 @@
 
 # It is based on:
 # - package:flutter_lints (therefore also package:lints)
-# - my favorite rules from package:dart_code_metrics
 # - my favorite lint rules which are not present in package:flutter_lints
 
 include: package:flutter_lints/flutter.yaml
@@ -17,45 +16,6 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - '**/*.config.dart'
-  plugins:
-    - dart_code_metrics
-
-dart_code_metrics:
-  exclude:
-    - example/**
-    - "**/*.g.dart"
-    - "**/*.freezed.dart"
-  rules:
-    - avoid-nested-conditional-expressions:
-        acceptable-level: 3
-    - avoid-dynamic
-    - avoid-global-state
-    - avoid-missing-enum-constant-in-map
-    - avoid-unused-parameters
-    - avoid-wrapping-in-padding
-    - avoid-returning-widgets
-    - avoid-unnecessary-setstate
-    - avoid-unnecessary-type-assertions
-    - avoid-unnecessary-type-casts
-    - avoid-unrelated-type-assertions
-    - avoid-unused-parameters
-    - avoid-border-all
-    - avoid-throw-in-catch-block
-    - always-remove-listener
-    - binary-expression-operand-order
-    - double-literal-format
-    - newline-before-return
-    - no-boolean-literal-compare
-    - no-equal-then-else
-    - no-object-declaration
-    - no-empty-block
-    - prefer-conditional-expressions
-    - prefer-const-border-radius
-    - prefer-async-await
-    - prefer-first
-    - prefer-last
-    - prefer-immediate-return
-    - use-setstate-synchronously
 
 linter:
   rules:

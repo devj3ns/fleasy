@@ -15,7 +15,6 @@ dependencies:
   font_awesome_flutter: ^10.3.0
   flash: ^2.0.5
   flutter_lints: ^2.0.1
-  dart_code_metrics: ^5.5.1
 
 dev_dependencies:
   test: ^1.22.2
