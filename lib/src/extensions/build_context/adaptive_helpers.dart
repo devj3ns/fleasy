@@ -27,23 +27,23 @@ extension FormFactorHelpers on FormFactor {
 }
 
 extension AdaptiveHelpers on BuildContext {
-  /// The [MediaQueryData] from the closest instance of this class that encloses the given context.
-  ///
-  /// You can use this getter to query the size and orientation of the screen, as well as other media parameters.
-  /// When that information changes, your widget will be scheduled to be rebuilt, keeping your widget up-to-date.
-  MediaQueryData get mediaQuery => MediaQuery.of(this);
+  /// The [MediaQueryData.size] from the nearest [MediaQuery] ancestor.
+  Size get screenSize => MediaQuery.sizeOf(this);
 
   /// The horizontal extent of the screen size.
-  double get screenWidth => mediaQuery.size.width;
+  double get screenWidth => screenSize.width;
 
   /// The vertical extent of the screen size.
-  double get screenHeight => mediaQuery.size.height;
+  double get screenHeight => screenSize.height;
+
+  /// The [MediaQueryData.orientation] from the nearest [MediaQuery] ancestor.
+  Orientation get screenOrientation => MediaQuery.orientationOf(this);
 
   /// Whether the device is in landscape mode.
-  bool get screenIsLandscape => mediaQuery.orientation == Orientation.landscape;
+  bool get screenIsLandscape => screenOrientation == Orientation.landscape;
 
   /// Whether the device is in portrait mode.
-  bool get screenIsPortrait => mediaQuery.orientation == Orientation.portrait;
+  bool get screenIsPortrait => screenOrientation == Orientation.portrait;
 
   /// Returns the correct [FormFactor] based on the [ScreenWidthBreakpoints].
   ///
@@ -56,9 +56,8 @@ extension AdaptiveHelpers on BuildContext {
   /// is compared with the [ScreenWidthBreakpoints]. This means the [FormFactor]
   /// does not change when the device orientation changes.
   FormFactor formFactor({bool followDeviceOrientation = true}) {
-    final width = followDeviceOrientation
-        ? mediaQuery.size.width
-        : mediaQuery.size.shortestSide;
+    final width =
+        followDeviceOrientation ? screenWidth : screenSize.shortestSide;
 
     return width > ScreenWidthBreakpoints.desktop
         ? FormFactor.desktop

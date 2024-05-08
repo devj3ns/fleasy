@@ -56,12 +56,14 @@ All features with links to their page in the documentation:
   
   
 - ### Extensions on `BuildContext` (Adaptive helpers):
-    - #### [mediaQuery](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/mediaQuery.html)
-      The `MediaQueryData` from the closest instance of this class that encloses the given context.
+    - #### [screenSize](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenSize.html)
+      The `MediaQueryData.size` from the nearest `MediaQuery` ancestor.
     - #### [screenWidth](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenWidth.html)
       The horizontal extent of the screen size.
     - #### [screenHeight](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenHeight.html)
       The vertical extent of the screen size.
+    - #### [screenOrientation](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenOrientation.html)
+      The `MediaQueryData.orientation` from the nearest `MediaQuery` ancestor.
     - #### [screenIsLandscape](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenIsLandscape.html)
       Whether the device is in landscape mode.
     - #### [screenIsPortrait](https://pub.dev/documentation/fleasy/latest/fleasy/AdaptiveHelpers/screenIsPortrait.html)
@@ -189,4 +191,4 @@ All features with links to their page in the documentation:
 ## Note:
 **This package is still in early stages**. If you notice any bugs not present in issues, please file a [new issue](https://github.com/devj3ns/fleasy/issues). If you are willing to fix or enhance things yourself, **you are very welcome to make a [pull request](https://github.com/devj3ns/fleasy/pulls)**.  
 
-Also: **Feedback and suggestions are very welcome**. Just [open an issue](https://github.com/devj3ns/fleasy/issues) or write an email to [info@jensbecker.dev](mailto:info@jensbecker.dev).
+Also: **Feedback and suggestions are very welcome**. Just [open an issue](https://github.com/devj3ns/fleasy/issues).
