@@ -1,3 +1,9 @@
+# 0.16.0
+- breaking: remove `context.mediaQuery` (use the other helpers or the specific `...Of` methods instead)
+- refactor size and orientation `BuildContext` extensions to use the specific `...Of` methods to reduce rebuilds.
+- add `context.screenSize` and `context.screenOrientation` extensions
+- chore: update dependencies
+
 # 0.15.1
 - replace deprecated lint rules
 
