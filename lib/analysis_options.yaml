@@ -21,7 +21,6 @@ linter:
   rules:
     - avoid_empty_else
     - avoid_relative_lib_imports
-    - avoid_returning_null
     - avoid_returning_this
     - avoid_types_as_parameter_names
     - avoid_unused_constructor_parameters
