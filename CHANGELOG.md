@@ -1,3 +1,7 @@
+# 0.17.0
+- update intl to `^0.19.0` in order to support Flutter 3.22
+- update flutter_lints to `^4.0.0`
+
 # 0.16.0
 - breaking: remove `context.mediaQuery` (use the other helpers or the specific `...Of` methods instead)
 - refactor size and orientation `BuildContext` extensions to use the specific `...Of` methods to reduce rebuilds.
