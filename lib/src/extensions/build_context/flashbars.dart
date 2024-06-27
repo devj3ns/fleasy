@@ -17,15 +17,15 @@ extension FlashbarHelpers on BuildContext {
         return FlashBar(
           content: Text(
             message,
-            style: Theme.of(this).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           icon: Icon(
             icon,
             color: iconColor,
-            size: Theme.of(this).iconTheme.size ?? 25,
+            size: Theme.of(context).iconTheme.size ?? 25,
           ),
           controller: controller,
-          backgroundColor: Theme.of(this).dialogBackgroundColor,
+          backgroundColor: Theme.of(context).dialogBackgroundColor,
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(Insets.l),
