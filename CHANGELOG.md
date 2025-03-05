@@ -1,32 +1,45 @@
+# 0.18.0
+
+- fix(flashbars): use the correct BuildContext for accessing the theme to prevent "Looking up a deactivated widget's ancestor is unsafe" on navigation
+- refactor(flashbars): replace usage of deprecated `Theme.of(context).dialogBackgroundColor` with `DialogTheme.of(context).backgroundColor`
+- chore: upgrade dependencies and remove deprecated lint rules
+
 # 0.17.0
+
 - update intl to `^0.19.0` in order to support Flutter 3.22
 - update flutter_lints to `^4.0.0`
 
 # 0.16.0
+
 - breaking: remove `context.mediaQuery` (use the other helpers or the specific `...Of` methods instead)
 - refactor size and orientation `BuildContext` extensions to use the specific `...Of` methods to reduce rebuilds.
 - add `context.screenSize` and `context.screenOrientation` extensions
 - chore: update dependencies
 
 # 0.15.1
+
 - replace deprecated lint rules
 
 # 0.15.0
+
 - remove [dart_code_metrics](https://pub.dev/packages/dart_code_metrics) because it's paid now
 - migrate to [flash](https://pub.dev/packages/flash) v3
 - update dependencies
 - update sdk version
 
 # 0.14.2
+
 - feat: add [use-setstate-synchronously](https://dcm.dev/docs/individuals/rules/flutter/use-setstate-synchronously) DCM rule
 - fix(flashbar): change deprecated `bodyText2` to `bodyMedium`
 - fix: exclude analysis for injectable generated file
 - chore: bump dependencies
 
 # 0.14.1
+
 - chore: bump `dart_code_metrics` version to ^4.16.0 [#9](https://github.com/devj3ns/fleasy/pull/9)
 
 # 0.14.0
+
 - Bump dart-sdk to `>=2.17.1`
 - Bump dart_code_metrics to `^4.15.2`
 - Bump flutter_lints to `^2.0.1`
@@ -47,16 +60,20 @@
   - [use_to_and_as_if_applicable](https://dart-lang.github.io/linter/lints/use_to_and_as_if_applicable.html)
 
 # 0.13.0
+
 - Disable analysis/metrics in generated files [#8](https://github.com/devj3ns/fleasy/pull/8)
 
 # 0.12.1
+
 - Update dependencies
 - Make ScreenWidthBreakpoints constants
 
 # 0.12.0
+
 - **Add** more [dart_code_metrics](https://pub.dev/packages/dart_code_metrics) rules
 
 # 0.11.0
+
 - **Add** `Gap.w32()` and `Gap.h32()`
 - **Remove** `DeviceType` class (Use [universal_platform](https://pub.dev/packages/universal_platform) instead)
 - **Revise** adaptive helpers:
@@ -67,45 +84,56 @@
   - Rename `FormFactorBreakpoints` to `ScreenWidthBreakpoints`
 
 # 0.10.0
+
 - **Add** `Gap` widget
 
 # 0.9.0
+
 - **Improve** navigation helpers
 - **Remove:** `prefer-extracting-callbacks` lint rule
 
 # 0.8.0
+
 - **Add:** shadow to flasbars
 
 # 0.7.1
+
 - **Fix:** Add `prefer_relative_imports` lint rule
 
 # 0.7.0
+
 - **Add** theme helpers/extensions on `BuildContext`
 - **Add** `prefer_relative_imports` lint rule
 - **Breaking:** remove extensions on `List<DateTime>`
 
 # 0.6.0
+
 - Make flashbars more customizable (via theme)
 - Add more dart code metric rules
 
 # 0.5.0
+
 - **`EasyStreamBuilder` & `EasyFutureBuilder`:**
   - When the snapshot's data is `null` (and `T` is nullable), it will now show the widget returned by the `dataBuilder`. Before, it showed the `isEmptyText` and `isEmptyIcon`.
   - When the snapshot has an error in debug mode, it will now `throw` the error to give more insights. Before, it just displayed the error as a text.
 
 # 0.4.1
+
 - **Fix:** `isEmail` is now case insensitive
 - **Improve** README and doc comments
 
 # 0.4.0
+
 - **Add** `byFormFactor<T>` to extensions on `BuildContext` (see [docs](https://pub.dev/documentation/fleasy/latest/fleasy/AdpativeContextExtensions/byFormFactor.html))
 - **Add** helper getters to `context.formFactor` & `context.screenSize` enums
 
 # 0.3.2
+
 - **Add** logo
 - **Add** GitHub workflow for automatically publishing new versions to pub.dev on a new release
 
 # 0.3.1
+
 - **Improve** analysis options
 - **Add** key to widget constructors
 - **Export** `analysis_options.yaml` (see [new section in README](https://pub.dev/packages/fleasy#analysis-options))
@@ -113,14 +141,14 @@
 # 0.3.0
 
 - **Add** Flashbar extensions to `BuildContext`
-    - `showSuccessFlashbar(...)`
-    - `showInfoFlashbar(...)`
-    - `showErrorFlashbar(...)`
-    - `showNoConnectionFlashbar(...)`
+  - `showSuccessFlashbar(...)`
+  - `showInfoFlashbar(...)`
+  - `showErrorFlashbar(...)`
+  - `showNoConnectionFlashbar(...)`
 - **Add** `addHtpps` to string extensions
 - **BREAKING:** Refactor `EasyFutureBuilder` & `EasyStreamBuilder`:
-    - `errorIcon` & `isEmptyIcon` now take `IconData` instead of `FaIcon`
-    - new attributes: `textStyle` & `iconStyle`
+  - `errorIcon` & `isEmptyIcon` now take `IconData` instead of `FaIcon`
+  - new attributes: `textStyle` & `iconStyle`
 - **BREAKING:** Remove `shortestScreenSide` & `longestScreenSide`
 - **Improve** README
 
