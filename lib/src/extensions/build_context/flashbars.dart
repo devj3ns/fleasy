@@ -25,7 +25,7 @@ extension FlashbarHelpers on BuildContext {
             size: Theme.of(context).iconTheme.size ?? 25,
           ),
           controller: controller,
-          backgroundColor: Theme.of(context).dialogBackgroundColor,
+          backgroundColor: DialogTheme.of(context).backgroundColor,
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(Insets.l),
